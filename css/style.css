@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#header {
+  height: 3.35rem;
+  background: #ffffff;
+}
+#logo {
+  height: 1.3rem;
+}
+.today-game-container {
+  margin: 3.35rem 1.1rem 0.85rem 1.1rem;
+  border-radius: 1.05rem;
+  box-shadow: 0rem 0rem 1.25rem #cccccc;
+  overflow: hidden;
+}
+.today-game-bg-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.today-game-text-main {
+  font-size: 1.5rem;
+  margin: 1.4rem;
+}
+.today-game-text-past {
+  font-size: 1rem;
+}
+.today-game-footer {
+  min-height: 4.125rem;
+  padding: 0.675rem 0.75rem 0.675rem 0.75rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(90deg, #b89d8c, #81624f);
+}
+.today-game-footer-icon {
+  width: 2.75rem;
+  min-width: 2.75rem;
+  max-width: 2.75rem;
+  border-radius: 0.4rem;
+  flex: auto;
+}
+.today-game-footer-content {
+  height: 2.75rem;
+  min-width: 10%;
+  flex: auto;
+}
+.today-game-footer-content-tittle {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.today-game-footer-content-description {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.today-game-footer-mark {
+  float: right;
+  flex: initial;
+  min-width: 2.5rem;
+}
+.main-footer {
+  height: 3.025rem;
+  border-top-width: 0.075rem;
+  padding: 0.6rem 1.875rem 0.6rem 1.875rem;
+  background: #ffffff;
+  border-top-style: solid;
+  border-top-color: #ebebeb;
+}
+.main-footer-btn {
+  height: 1.65rem;
+}
+.home-card-container {
+  margin: 0rem 1.1rem 0.85rem 1.1rem;
+}
+.home-card-container-header-arrow {
+  float: right;
+  flex: initial;
+  min-width: 1.2rem;
+  color: #b2b2b2;
+}
+.home-game-card-header {
+  width: 100%;
+}
+.home-game-card-header-icon {
+  height: 1.6rem;
+  min-width: 1.6rem;
+  max-width: 1.6rem;
+  flex: initial;
+}
+.home-game-card-header-tittle {
+  height: 1.65rem;
+  min-width: 10%;
+  flex: auto;
+}
+.home-game-card-header-tittle p {
+  overflow: hidden;
+  font-size: 1.1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-game-card-header-description {
+  font-size: 1rem;
+  color: #b2b2b2;
+  max-height: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-game-card-img {
+  border-radius: 0.75rem;
+}

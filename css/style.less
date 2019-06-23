@@ -1,0 +1,154 @@
+.rem(@name, @px) {
+    @{name}: unit(@px / 40, rem);
+}
+
+.rem_rounded(@name, @px1, @px2, @px3, @px4) {
+    @{name}: unit(@px1 / 40, rem) unit(@px2 / 40, rem) unit(@px3 / 40, rem) unit(@px4 / 40, rem);
+}
+
+.rem_3px_1color(@name, @px1, @px2, @px3, @color) {
+    @{name}: unit(@px1 / 40, rem) unit(@px2 / 40, rem) unit(@px3 / 40, rem) @color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    .rem(height, 134);
+    background: #ffffff;
+}
+
+#logo {
+    .rem(height, 52);
+}
+
+.today-game-container {
+    .rem_rounded(margin, 134, 44, 34, 44);
+    .rem(border-radius, 42);
+    .rem_3px_1color(box-shadow, 0, 0, 50, #cccccc);
+    overflow: hidden;
+}
+
+.today-game-bg-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.today-game-text-main {
+    .rem(font-size, 60);
+    .rem(margin, 56);
+}
+
+.today-game-text-past {
+    .rem(font-size, 40);
+}
+
+.today-game-footer {
+    .rem(min-height, 165);
+    .rem_rounded(padding, 27, 30, 27, 30);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(90deg, #b89d8c, #81624f);
+}
+
+.today-game-footer-icon {
+    .rem(width, 110);
+    .rem(min-width, 110);
+    .rem(max-width, 110);
+    .rem(border-radius, 16);
+    flex: auto;
+}
+
+.today-game-footer-content {
+    .rem(height, 110);
+    min-width: 10%;
+    flex: auto;
+}
+
+.today-game-footer-content-tittle {
+    .rem(font-size, 44);
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.today-game-footer-content-description {
+    .rem(font-size, 32);
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.today-game-footer-mark {
+    float: right;
+    flex: initial;
+    .rem(min-width, 100);
+}
+
+.main-footer {
+    .rem(height, 121);
+    .rem(border-top-width, 3);
+    .rem_rounded(padding, 24, 75, 24, 75);
+    background: #ffffff;
+    border-top-style: solid;
+    border-top-color: #ebebeb;
+}
+
+.main-footer-btn {
+    .rem(height, 66);
+}
+
+.home-card-container {
+    .rem_rounded(margin, 0, 44, 34, 44);
+}
+
+.home-card-container-header-arrow {
+    float: right;
+    flex: initial;
+    .rem(min-width, 48);
+    color: #b2b2b2;
+}
+
+.home-game-card-header {
+    width: 100%;
+}
+
+.home-game-card-header-icon {
+    .rem(height, 64);
+    .rem(min-width, 64);
+    .rem(max-width, 64);
+    flex: initial;
+}
+
+.home-game-card-header-tittle {
+    .rem(height, 66);
+    min-width: 10%;
+    flex: auto;
+}
+
+.home-game-card-header-tittle p {
+    overflow: hidden;
+    .rem(font-size, 44);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.home-game-card-header-description {
+    .rem(font-size, 40);
+    color: #b2b2b2;
+    .rem(max-height, 60);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.home-game-card-img {
+    .rem(border-radius, 30);
+}
