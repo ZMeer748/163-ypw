@@ -2,10 +2,6 @@
     @{name}: unit(@px / 42, rem);
 }
 
-.rem_font_size(@name, @px) {
-    @{name}: unit(@px / 54, rem);
-}
-
 .rem_rounded(@name, @px1, @px2, @px3, @px4) {
     @{name}: unit(@px1 / 42, rem) unit(@px2 / 42, rem) unit(@px3 / 42, rem) unit(@px4 / 42, rem);
 }
@@ -42,12 +38,12 @@
 }
 
 .today-game-text-main {
-    .rem_font_size(font-size, 60);
+    .rem(font-size, 60);
     .rem(margin, 56);
 }
 
 .today-game-text-past {
-    .rem_font_size(font-size, 40);
+    .rem(font-size, 40);
 }
 
 .today-game-footer {
@@ -75,8 +71,8 @@
 }
 
 .today-game-footer-content-tittle {
-    .rem_font_size(font-size, 46);
-    .rem(line-height, 62);
+    .rem(font-size, 46);
+    .rem(line-height, 60);
     overflow: hidden;
     font-weight: 560;
     text-overflow: ellipsis;
@@ -85,15 +81,15 @@
 
 
 .today-game-footer-content-description {
-    .rem_font_size(font-size, 34);
-    .rem(line-height, 45);
+    .rem(font-size, 34);
+    .rem(line-height, 50);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .today-game-footer-mark {
-    .rem_font_size(font-size, 48);
+    .rem(font-size, 46);
     float: right;
     flex: initial;
     .rem(min-width, 110);
@@ -143,13 +139,13 @@
 
 .home-game-card-header-tittle p {
     overflow: hidden;
-    .rem_font_size(font-size, 44);
+    .rem(font-size, 44);
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .home-game-card-header-description {
-    .rem_font_size(font-size, 40);
+    .rem(font-size, 40);
     color: #b2b2b2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -162,21 +158,22 @@
 }
 
 .home-game-card-footer {
-    .rem(height, 56);
+    .rem(height, 75);
 }
 
 .home-game-card-footer-mark {
-    .rem_font_size(font-size, 32);
+    .rem(font-size, 32);
     .rem_rounded(padding, 10, 28, 10, 28);
     .rem(border-radius, 50);
+    .rem(line-height, 55);
     color: #64cfa9;
     background: #f4f4f4;
     float: left;
 }
 
 .home-game-card-footer-download {
-    .rem_font_size(font-size, 40);
-    .rem(line-height, 55);
+    .rem(font-size, 40);
+    .rem(line-height, 75);
     font-weight: 560;
     color: #00b4b4;
     float: right;
@@ -185,6 +182,6 @@
 .modal-content {
     .rem(width, 550);
     .rem(height, 280);
-    .rem_font_size(font-size, 44);
+    .rem(font-size, 44);
     .rem(margin-right, 22);
 }
