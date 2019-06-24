@@ -52,7 +52,7 @@
   font-size: 1.0952381rem;
   line-height: 1.42857143rem;
   overflow: hidden;
-  font-weight: 560;
+  font-weight: bold;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -105,8 +105,9 @@
   flex: auto;
 }
 .home-game-card-header-tittle p {
-  overflow: hidden;
   font-size: 1.04761905rem;
+  font-weight: bold;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -136,7 +137,7 @@
 .home-game-card-footer-download {
   font-size: 0.95238095rem;
   line-height: 1.78571429rem;
-  font-weight: 560;
+  font-weight: bold;
   color: #00b4b4;
   float: right;
 }
