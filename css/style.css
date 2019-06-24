@@ -3,16 +3,16 @@
   padding: 0;
 }
 #header {
-  height: 3.35rem;
+  height: 3.19047619rem;
   background: #ffffff;
 }
 #logo {
-  height: 1.3rem;
+  height: 1.23809524rem;
 }
 .today-game-container {
-  margin: 3.35rem 1.1rem 0.85rem 1.1rem;
-  border-radius: 1.05rem;
-  box-shadow: 0rem 0rem 1.25rem #cccccc;
+  margin: 3.19047619rem 1.04761905rem 0.80952381rem 1.04761905rem;
+  border-radius: 1rem;
+  box-shadow: 0rem 0rem 1.19047619rem #cccccc;
   overflow: hidden;
 }
 .today-game-bg-img {
@@ -21,99 +21,127 @@
   object-fit: cover;
 }
 .today-game-text-main {
-  font-size: 1.5rem;
-  margin: 1.4rem;
+  font-size: 1.11111111rem;
+  margin: 1.33333333rem;
 }
 .today-game-text-past {
-  font-size: 1rem;
+  font-size: 0.74074074rem;
 }
 .today-game-footer {
-  min-height: 4.125rem;
-  padding: 0.675rem 0.75rem 0.675rem 0.75rem;
+  min-height: 3.92857143rem;
+  padding: 0.64285714rem 0.71428571rem 0.64285714rem 0.71428571rem;
   width: 100%;
   position: absolute;
   bottom: 0;
   background: linear-gradient(90deg, #b89d8c, #81624f);
 }
 .today-game-footer-icon {
-  width: 2.75rem;
-  min-width: 2.75rem;
-  max-width: 2.75rem;
-  border-radius: 0.4rem;
+  width: 2.61904762rem;
+  min-width: 2.61904762rem;
+  max-width: 2.61904762rem;
+  border-radius: 0.38095238rem;
+  margin-right: 0.85714286rem;
   flex: auto;
 }
 .today-game-footer-content {
-  height: 2.75rem;
+  height: 2.61904762rem;
   min-width: 10%;
   flex: auto;
 }
 .today-game-footer-content-tittle {
-  font-size: 1.1rem;
-  line-height: 1.2;
+  font-size: 0.85185185rem;
+  line-height: 1.47619048rem;
   overflow: hidden;
+  font-weight: 560;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .today-game-footer-content-description {
-  font-size: 0.8rem;
-  line-height: 1.5;
+  font-size: 0.62962963rem;
+  line-height: 1.07142857rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .today-game-footer-mark {
+  font-size: 0.88888889rem;
   float: right;
   flex: initial;
-  min-width: 2.5rem;
+  min-width: 2.61904762rem;
 }
 .main-footer {
-  height: 3.025rem;
-  border-top-width: 0.075rem;
-  padding: 0.6rem 1.875rem 0.6rem 1.875rem;
+  height: 2.88095238rem;
+  border-top-width: 0.07142857rem;
+  padding: 0.57142857rem 1.78571429rem 0.57142857rem 1.78571429rem;
   background: #ffffff;
   border-top-style: solid;
   border-top-color: #ebebeb;
 }
 .main-footer-btn {
-  height: 1.65rem;
+  height: 1.57142857rem;
 }
 .home-card-container {
-  margin: 0rem 1.1rem 0.85rem 1.1rem;
+  margin: 0rem 1.04761905rem 1.19047619rem 1.04761905rem;
 }
 .home-card-container-header-arrow {
+  min-width: 1.14285714rem;
+  color: #b2b2b2;
   float: right;
   flex: initial;
-  min-width: 1.2rem;
-  color: #b2b2b2;
 }
 .home-game-card-header {
   width: 100%;
 }
 .home-game-card-header-icon {
-  height: 1.6rem;
-  min-width: 1.6rem;
-  max-width: 1.6rem;
+  height: 1.97619048rem;
+  min-width: 1.97619048rem;
+  max-width: 1.97619048rem;
   flex: initial;
 }
 .home-game-card-header-tittle {
-  height: 1.65rem;
+  height: 1.97619048rem;
+  line-height: 1.97619048rem;
   min-width: 10%;
   flex: auto;
 }
 .home-game-card-header-tittle p {
   overflow: hidden;
-  font-size: 1.1rem;
+  font-size: 0.81481481rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .home-game-card-header-description {
-  font-size: 1rem;
+  font-size: 0.74074074rem;
   color: #b2b2b2;
-  max-height: 1.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .home-game-card-img {
-  border-radius: 0.75rem;
+  border-radius: 0.71428571rem;
+  margin-bottom: 0.95238095rem;
+}
+.home-game-card-footer {
+  height: 1.33333333rem;
+}
+.home-game-card-footer-mark {
+  font-size: 0.59259259rem;
+  padding: 0.23809524rem 0.66666667rem 0.23809524rem 0.66666667rem;
+  border-radius: 1.19047619rem;
+  color: #64cfa9;
+  background: #f4f4f4;
+  float: left;
+}
+.home-game-card-footer-download {
+  font-size: 0.74074074rem;
+  line-height: 1.30952381rem;
+  font-weight: 560;
+  color: #00b4b4;
+  float: right;
+}
+.modal-content {
+  width: 13.0952381rem;
+  height: 6.66666667rem;
+  font-size: 0.81481481rem;
+  margin-right: 0.52380952rem;
 }

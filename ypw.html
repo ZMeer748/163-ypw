@@ -14,20 +14,52 @@
     <link rel="stylesheet" href="css/style.css">
     <script>
         $(document).ready(function () {
-            $('.today-game-container').height($('.today-game-container').width() * 1.08);
             $('.home-card-container-arrow').click(function () {
+                var eTop = $(this).offset().top;
+                console.log(eTop - $(window).scrollTop());
+                var modalContentTop = eTop - $(window).scrollTop() + $('.home-game-card-header')
+                    .height();
+                console.log(modalContentTop + $('.modal-content').height());
+                var modalContentBottom = modalContentTop + $('.modal-content').height()
+                if (modalContentBottom > $(window).height()) {
+                    $('#exampleModal .modal-content').css('top', $(window).height() - $(
+                        '.modal-content').height() - 16);
+                } else {
+                    $('#exampleModal .modal-content').css('top', modalContentTop);
+                }
                 $('#exampleModal').modal('toggle');
-                // $('#exampleModal').css("top", $(this).position().top);
-                $('#exampleModal').scrollTop($(this).scrollTop());
             });
         });
+
         $(window).resize(function () {
             $('.today-game-container').height($('.today-game-container').width() * 1.08);
         });
+
+        $(function () {
+            $('.today-game-container').height($('.today-game-container').width() * 1.08);
+        });
+
+        // $(function () {
+        //     var eTop = $('#arrow_2').offset().top;
+
+        //     $(window).scroll(function () { //when window is scrolled
+        //         log_2($(window).height());
+        //         log(eTop - $(window).scrollTop() + $('.home-game-card-header').height());
+        //     });
+        // });
+
+        function log(txt) {
+            $('#log').html('location : <b>' + txt + '</b> px')
+        }
+
+        function log_2(txt) {
+            $('#log_2').html('location : <b>' + txt + '</b> px')
+        }
     </script>
 </head>
 
 <body>
+    <!-- header -->
     <nav class="navbar navbar-light fixed-top" id="header">
         <div></div>
         <a class="navbar-brand m-0 p-0" href="#">
@@ -36,16 +68,17 @@
         <div></div>
     </nav>
 
+    <!-- today-game -->
     <div class="card bg-dark text-white today-game-container border-0">
         <img class="card-img today-game-bg-img" src="contents/games/photos/main_pic/01.jpg" alt="Card image">
         <div class="card-img-overlay m-0 p-0 today-game-overlay">
             <h1 class="card-title today-game-text-main">今日游戏
                 <div class="float-right font-weight-light today-game-text-past">
-                    <i class="far fa-calendar-alt fa-sm fa-fw"></i>往期
+                    <i class="far fa-calendar-alt fa-sm fa-fw"></i> 往期
                 </div>
             </h1>
             <div class="media bg-dark today-game-footer">
-                <img class="align-self-centers mr-3 today-game-footer-icon" src="contents/games/photos/game_icon/01.png"
+                <img class="align-self-centers today-game-footer-icon" src="contents/games/photos/game_icon/01.png"
                     alt="Generic placeholder image">
                 <div class="media-body today-game-footer-content">
                     <p class="mt-0 mb-0 today-game-footer-content-tittle">聚光灯-密室逃脱</p>
@@ -56,49 +89,43 @@
         </div>
     </div>
 
+    <!-- game-card-example -->
     <div class="card home-card-container border-0">
         <div class="card-body pl-0 pr-0 pb-1 home-game-card-header">
             <div class="media">
-                <img class="align-self-centers mr-3 home-game-card-header-icon"
+                <img class="align-self-centers mr-2 home-game-card-header-icon"
                     src="contents/games/photos/game_icon/02.png" alt="Generic placeholder image">
                 <div class="media-body home-game-card-header-tittle">
                     <p class="mt-0 mb-0">逃课是不可以的</p>
                 </div>
-                <i class="fa fa-angle-down fa-lg mt-1 mr-1 home-card-container-arrow" aria-hidden="true"
-                    style="color: #b2b2b2"></i>
+                <div class="home-card-container-arrow" id="arrow_1">
+                    <i class="fa fa-angle-down fa-lg mt-2 mr-1" aria-hidden="true" style="color: #b2b2b2"></i>
+                </div>
             </div>
         </div>
-        <p class="mb-2 mt-2 home-game-card-header-description">找到逃课的小明，绝不能让他误入歧途！</p>
+        <p class="mb-2 mt-1 home-game-card-header-description">找到逃课的小明，绝不能让他误入歧途！</p>
         <img class="card-img-top home-game-card-img" src="contents/games/photos/main_pic/02.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+        <div class="card-body p-0 home-game-card-footer">
+            <div class="home-game-card-footer-mark"><i class="fas fa-gamepad"></i> 游戏评分：0.0</div>
+            <div href="#" class="home-game-card-footer-download">下载</div>
         </div>
     </div>
+    <hr class="mb-0">
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+            <div class="modal-content float-right">
                 <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <p class="mb-0">不感兴趣</p>
+                    <hr class="mb-3 mt-3">
+                    <p class="mb-0">举报</p>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
     <br>
     <br>
     <br>
@@ -140,6 +167,7 @@
     <br>
     <br>
     <br>
+    <!-- footer -->
     <nav class="navbar fixed-bottom main-footer" aria-label="Basic example">
         <a href="#">
             <img class="main-footer-btn" src="img/AppFrame/footer_btn_home_selected.png" alt=""></a>
@@ -152,6 +180,9 @@
         <a href="#">
             <img class="main-footer-btn" src="img/AppFrame/footer_btn_user_unread.png" alt=""></a>
     </nav>
+
+    <div id="log" class="fixed-bottom" style="text-align: center;"></div>
+    <div id="log_2" class="fixed-top" style="text-align: center;"></div>
 </body>
 
 </html>

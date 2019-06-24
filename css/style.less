@@ -1,13 +1,17 @@
 .rem(@name, @px) {
-    @{name}: unit(@px / 40, rem);
+    @{name}: unit(@px / 42, rem);
+}
+
+.rem_font_size(@name, @px) {
+    @{name}: unit(@px / 54, rem);
 }
 
 .rem_rounded(@name, @px1, @px2, @px3, @px4) {
-    @{name}: unit(@px1 / 40, rem) unit(@px2 / 40, rem) unit(@px3 / 40, rem) unit(@px4 / 40, rem);
+    @{name}: unit(@px1 / 42, rem) unit(@px2 / 42, rem) unit(@px3 / 42, rem) unit(@px4 / 42, rem);
 }
 
 .rem_3px_1color(@name, @px1, @px2, @px3, @color) {
-    @{name}: unit(@px1 / 40, rem) unit(@px2 / 40, rem) unit(@px3 / 40, rem) @color;
+    @{name}: unit(@px1 / 42, rem) unit(@px2 / 42, rem) unit(@px3 / 42, rem) @color;
 }
 
 * {
@@ -38,12 +42,12 @@
 }
 
 .today-game-text-main {
-    .rem(font-size, 60);
+    .rem_font_size(font-size, 60);
     .rem(margin, 56);
 }
 
 .today-game-text-past {
-    .rem(font-size, 40);
+    .rem_font_size(font-size, 40);
 }
 
 .today-game-footer {
@@ -60,6 +64,7 @@
     .rem(min-width, 110);
     .rem(max-width, 110);
     .rem(border-radius, 16);
+    .rem(margin-right, 36);
     flex: auto;
 }
 
@@ -70,26 +75,28 @@
 }
 
 .today-game-footer-content-tittle {
-    .rem(font-size, 44);
-    line-height: 1.2;
+    .rem_font_size(font-size, 46);
+    .rem(line-height, 62);
     overflow: hidden;
+    font-weight: 560;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 
 .today-game-footer-content-description {
-    .rem(font-size, 32);
-    line-height: 1.5;
+    .rem_font_size(font-size, 34);
+    .rem(line-height, 45);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .today-game-footer-mark {
+    .rem_font_size(font-size, 48);
     float: right;
     flex: initial;
-    .rem(min-width, 100);
+    .rem(min-width, 110);
 }
 
 .main-footer {
@@ -106,14 +113,14 @@
 }
 
 .home-card-container {
-    .rem_rounded(margin, 0, 44, 34, 44);
+    .rem_rounded(margin, 0, 44, 50, 44);
 }
 
 .home-card-container-header-arrow {
-    float: right;
-    flex: initial;
     .rem(min-width, 48);
     color: #b2b2b2;
+    float: right;
+    flex: initial;
 }
 
 .home-game-card-header {
@@ -121,29 +128,29 @@
 }
 
 .home-game-card-header-icon {
-    .rem(height, 64);
-    .rem(min-width, 64);
-    .rem(max-width, 64);
+    .rem(height, 83);
+    .rem(min-width, 83);
+    .rem(max-width, 83);
     flex: initial;
 }
 
 .home-game-card-header-tittle {
-    .rem(height, 66);
+    .rem(height, 83);
+    .rem(line-height, 83);
     min-width: 10%;
     flex: auto;
 }
 
 .home-game-card-header-tittle p {
     overflow: hidden;
-    .rem(font-size, 44);
+    .rem_font_size(font-size, 44);
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .home-game-card-header-description {
-    .rem(font-size, 40);
+    .rem_font_size(font-size, 40);
     color: #b2b2b2;
-    .rem(max-height, 60);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -151,4 +158,33 @@
 
 .home-game-card-img {
     .rem(border-radius, 30);
+    .rem(margin-bottom, 40);
+}
+
+.home-game-card-footer {
+    .rem(height, 56);
+}
+
+.home-game-card-footer-mark {
+    .rem_font_size(font-size, 32);
+    .rem_rounded(padding, 10, 28, 10, 28);
+    .rem(border-radius, 50);
+    color: #64cfa9;
+    background: #f4f4f4;
+    float: left;
+}
+
+.home-game-card-footer-download {
+    .rem_font_size(font-size, 40);
+    .rem(line-height, 55);
+    font-weight: 560;
+    color: #00b4b4;
+    float: right;
+}
+
+.modal-content {
+    .rem(width, 550);
+    .rem(height, 280);
+    .rem_font_size(font-size, 44);
+    .rem(margin-right, 22);
 }
