@@ -85,17 +85,27 @@
 }
 .home-card-container-header-arrow {
   min-width: 1.14285714rem;
+  height: 1.97619048rem;
+  line-height: 1.97619048rem;
   color: #b2b2b2;
   float: right;
   flex: initial;
 }
-.home-game-card-header {
+.home-card-description {
+  font-size: 0.95238095rem;
+  color: #b2b2b2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-card-header {
   width: 100%;
 }
 .home-game-card-header-icon {
   height: 1.97619048rem;
   min-width: 1.97619048rem;
   max-width: 1.97619048rem;
+  border-radius: 0.38095238rem;
   flex: initial;
 }
 .home-game-card-header-tittle {
@@ -111,16 +121,15 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.home-game-card-header-description {
-  font-size: 0.95238095rem;
-  color: #b2b2b2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.home-game-card-img {
+.home-game-card-img-container {
   border-radius: 0.71428571rem;
   margin-bottom: 0.95238095rem;
+  overflow: hidden;
+}
+.home-game-card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .home-game-card-footer {
   height: 1.78571429rem;
@@ -140,6 +149,59 @@
   font-weight: bold;
   color: #00b4b4;
   float: right;
+}
+.home-post-card-header-user-icon {
+  height: 1.97619048rem;
+  min-width: 1.97619048rem;
+  max-width: 1.97619048rem;
+  border-radius: 50%;
+  flex: initial;
+}
+.home-post-card-header-user-name {
+  height: 1.97619048rem;
+  line-height: 1.97619048rem;
+  min-width: 10%;
+  flex: auto;
+}
+.home-post-card-header-user-name p {
+  font-size: 0.9047619rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home-post-card-footer {
+  height: 1.78571429rem;
+}
+.home-post-card-footer-sort {
+  font-size: 0.76190476rem;
+  padding: 0.23809524rem 0.66666667rem 0.23809524rem 0.66666667rem;
+  border-radius: 1.19047619rem;
+  line-height: 1.30952381rem;
+  color: #b2b2b2;
+  background: #f4f4f4;
+  float: left;
+}
+.home-post-card-footer-comment {
+  margin-right: 3.33333333rem;
+  color: #c3c3c3;
+  float: right;
+}
+.home-post-card-footer-coin {
+  color: #c3c3c3;
+  float: right;
+}
+.home-post-card-img-container {
+  border-radius: 0.57142857rem;
+  margin-bottom: 0.95238095rem;
+  overflow: hidden;
+}
+.home-post-card-img-container-left {
+  align-items: center;
+}
+.home-post-card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .modal-content {
   width: 13.0952381rem;

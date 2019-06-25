@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="css/style.css">
     <script>
         $(document).ready(function () {
-            $('.home-card-container-arrow').click(function () {
+            $('.home-card-container-header-arrow').click(function () {
                 var eTop = $(this).offset().top;
                 console.log(eTop - $(window).scrollTop());
-                var modalContentTop = eTop - $(window).scrollTop() + $('.home-game-card-header')
+                var modalContentTop = eTop - $(window).scrollTop() + $('.home-card-header')
                     .height();
                 console.log(modalContentTop + $('.modal-content').height());
                 var modalContentBottom = modalContentTop + $('.modal-content').height()
@@ -29,14 +29,22 @@
                 }
                 $('#exampleModal').modal('toggle');
             });
+
+            // $('.home-post-card-img').click(function setPostImgHeight() {
+            //     var height = $(this).height();
+            //     console.log(height);
+            //     var cHeight = $('.home-post-card-img-container').height();
+            //     $(this).css('margin-top', -(height - cHeight) / 2);
+            // });
+            $('.today-game-container').height($('.today-game-container').width() * 1.08);
+            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
+            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
         });
 
         $(window).resize(function () {
             $('.today-game-container').height($('.today-game-container').width() * 1.08);
-        });
-
-        $(function () {
-            $('.today-game-container').height($('.today-game-container').width() * 1.08);
+            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
+            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
         });
 
         // $(function () {
@@ -91,20 +99,22 @@
 
     <!-- game-card-example -->
     <div class="card home-card-container border-0">
-        <div class="card-body pl-0 pr-0 pb-0 home-game-card-header">
+        <div class="card-body pl-0 pr-0 pb-0 home-card-header">
             <div class="media">
                 <img class="align-self-centers mr-2 home-game-card-header-icon"
                     src="contents/games/photos/game_icon/02.png" alt="Generic placeholder image">
                 <div class="media-body home-game-card-header-tittle">
                     <p class="mt-0 mb-0">逃课是不可以的</p>
                 </div>
-                <div class="home-card-container-arrow" id="arrow_1">
-                    <i class="fa fa-angle-down fa-lg mt-2 mr-1" aria-hidden="true" style="color: #b2b2b2"></i>
+                <div class="home-card-container-header-arrow" id="arrow_1">
+                    <i class="fa fa-angle-down fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
                 </div>
             </div>
         </div>
-        <p class="mb-2 mt-1 home-game-card-header-description">找到逃课的小明，绝不能让他误入歧途！</p>
-        <img class="card-img-top home-game-card-img" src="contents/games/photos/main_pic/02.jpg" alt="Card image cap">
+        <p class="mb-2 mt-1 home-card-description">找到逃课的小明，绝不能让他误入歧途！</p>
+        <div class="home-game-card-img-container">
+            <img class="card-img-top home-game-card-img" src="contents/games/photos/main_pic/02.jpg"
+                alt="Card image cap"></div>
         <div class="card-body p-0 home-game-card-footer">
             <div class="home-game-card-footer-mark"><i class="fas fa-gamepad"></i> 游戏评分：0.0</div>
             <div href="#" class="home-game-card-footer-download">下载</div>
@@ -112,6 +122,36 @@
     </div>
     <hr class="mb-0">
 
+    <!-- post-card-example -->
+    <div class="card home-card-container border-0">
+        <div class="card-body pl-0 pr-0 pb-0 home-card-header">
+            <div class="media">
+                <img class="align-self-centers mr-2 home-post-card-header-user-icon"
+                    src="contents/posts/user-icon/01.jfif" alt="Generic placeholder image">
+                <div class="media-body home-post-card-header-user-name">
+                    <p class="mt-0 mb-0">决然临烟</p>
+                </div>
+                <div class="home-card-container-header-arrow" id="arrow_2">
+                    <i class="fa fa-angle-down fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+                </div>
+            </div>
+        </div>
+        <p class="mb-2 mt-1 home-post-card-tittle"></p>
+        <p class="mb-2 mt-1 home-card-description">[图片] 遇到同道，像是茫茫人海，遇到暖心之所 [图片] 又像战斗有了伙伴 [图片] 又好像看到了希望 [图片]
+            小姐姐～(￣▽￣～)~ [图片] 理想的兄妹关系 [图片] 又像看到可爱的猫咪 </p>
+        <div class="home-post-card-img-container">
+            <div class="home-post-card-img-container-left">
+                <img class="card-img-top home-post-card-img" src="contents/posts/photos/01_01.jfif"
+                    alt="Card image cap">
+            </div>
+        </div>
+        <div class="card-body p-0 home-post-card-footer">
+            <div href="#" class="home-post-card-footer-sort"><b>#</b> 综合讨论</div>
+            <div href="#" class="home-post-card-footer-coin"><i class="fas fa-coins"></i> 1</div>
+            <div href="#" class="home-post-card-footer-comment"><i class="far fa-comment-alt"></i> 1</div>
+        </div>
+    </div>
+    <hr class="mb-0">
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -186,3 +226,21 @@
 </body>
 
 </html>
+<script>
+    // var i = 1;
+    // $(function () {
+    //     if (i < 1) {
+    //         $(window).scroll(function () {
+    //             $('.home-post-card-img').each(function () {
+    //                 var height = $(this).height();
+    //                 // console.log(height);
+    //                 var cHeight = $('.home-post-card-img-container').height();
+    //                 // console.log(cHeight);
+    //                 $(this).css('margin-top', -(height - cHeight) / 2);
+    //             });
+    //             alert('succeed.');
+    //         });
+    //         i = 1;
+    //     }
+    // });
+</script>
