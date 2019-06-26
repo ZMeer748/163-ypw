@@ -9,6 +9,17 @@
 #logo {
   height: 1.23809524rem;
 }
+.main-footer {
+  height: 2.88095238rem;
+  border-top-width: 0.07142857rem;
+  padding: 0.57142857rem 1.78571429rem 0.57142857rem 1.78571429rem;
+  background: #ffffff;
+  border-top-style: solid;
+  border-top-color: #ebebeb;
+}
+.main-footer-btn {
+  height: 1.57142857rem;
+}
 .today-game-container {
   margin: 3.19047619rem 1.04761905rem 0.80952381rem 1.04761905rem;
   border-radius: 1rem;
@@ -68,17 +79,6 @@
   float: right;
   flex: initial;
   min-width: 2.61904762rem;
-}
-.main-footer {
-  height: 2.88095238rem;
-  border-top-width: 0.07142857rem;
-  padding: 0.57142857rem 1.78571429rem 0.57142857rem 1.78571429rem;
-  background: #ffffff;
-  border-top-style: solid;
-  border-top-color: #ebebeb;
-}
-.main-footer-btn {
-  height: 1.57142857rem;
 }
 .home-card-container {
   margin: 0rem 1.04761905rem 1.19047619rem 1.04761905rem;
@@ -172,7 +172,7 @@
   white-space: nowrap;
 }
 .home-post-card-tittle {
-  font-size: 1.19047619rem;
+  font-size: 1.04761905rem;
   margin-top: 1.0952381rem;
   margin-bottom: 0rem;
   font-weight: bold;
@@ -229,4 +229,10 @@
   height: 6.9047619rem;
   font-size: 1.04761905rem;
   margin-right: 0.52380952rem;
+}
+.toast-bottom-center {
+  margin-bottom: 3.11904762rem;
+}
+.toast-info {
+  background: #00b4b4;
 }
