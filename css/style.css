@@ -93,6 +93,8 @@
 }
 .home-card-description {
   font-size: 0.95238095rem;
+  margin-top: 0.85714286rem;
+  margin-bottom: 0.85714286rem;
   color: #b2b2b2;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -169,6 +171,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.home-post-card-tittle {
+  font-size: 1.19047619rem;
+  margin-top: 1.0952381rem;
+  margin-bottom: 0rem;
+  font-weight: bold;
+}
 .home-post-card-footer {
   height: 1.78571429rem;
 }
@@ -196,7 +204,20 @@
   overflow: hidden;
 }
 .home-post-card-img-container-left {
-  align-items: center;
+  width: 56%;
+  height: 100%;
+  float: left;
+}
+.home-post-card-img-container-right-top {
+  width: 42%;
+  height: 49%;
+  float: right;
+}
+.home-post-card-img-container-right-bottom {
+  width: 42%;
+  height: 49%;
+  margin-top: 2%;
+  float: right;
 }
 .home-post-card-img {
   height: 100%;

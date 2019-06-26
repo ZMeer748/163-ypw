@@ -123,6 +123,8 @@
 
 .home-card-description {
     .rem(font-size, 40);
+    .rem(margin-top, 36);
+    .rem(margin-bottom, 36);
     color: #b2b2b2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -212,6 +214,13 @@
     white-space: nowrap;
 }
 
+.home-post-card-tittle {
+    .rem(font-size, 50);
+    .rem(margin-top, 46);
+    .rem(margin-bottom, 0);
+    font-weight: bold;
+}
+
 .home-post-card-footer {
     .rem(height, 75);
 }
@@ -244,12 +253,23 @@
 }
 
 .home-post-card-img-container-left {
-    align-items: center;
+    width: 56%;
+    height: 100%;
+    float: left;
 }
 
-.home-post-card-img-container-right-top {}
+.home-post-card-img-container-right-top {
+    width: 42%;
+    height: 49%;
+    float: right;
+}
 
-.home-post-card-img-container-right-bottom {}
+.home-post-card-img-container-right-bottom {
+    width: 42%;
+    height: 49%;
+    margin-top: 2%;
+    float: right;
+}
 
 .home-post-card-img {
     height: 100%;

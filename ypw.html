@@ -7,13 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/toastr.js/latest/toastr.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/font-awesome/5.8.2/js/all.min.js"></script>
+    <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script>
-        $(document).ready(function () {
+        $(function () {
             $('.home-card-container-header-arrow').click(function () {
                 var eTop = $(this).offset().top;
                 console.log(eTop - $(window).scrollTop());
@@ -22,23 +24,60 @@
                 console.log(modalContentTop + $('.modal-content').height());
                 var modalContentBottom = modalContentTop + $('.modal-content').height()
                 if (modalContentBottom > $(window).height()) {
-                    $('#exampleModal .modal-content').css('top', $(window).height() - $(
+                    $('#cardPopModal .modal-content').css('top', $(window).height() - $(
                         '.modal-content').height() - 16);
                 } else {
-                    $('#exampleModal .modal-content').css('top', modalContentTop);
+                    $('#cardPopModal .modal-content').css('top', modalContentTop);
                 }
-                $('#exampleModal').modal('toggle');
+                $('#cardPopModal').modal('toggle');
             });
 
-            // $('.home-post-card-img').click(function setPostImgHeight() {
-            //     var height = $(this).height();
-            //     console.log(height);
-            //     var cHeight = $('.home-post-card-img-container').height();
-            //     $(this).css('margin-top', -(height - cHeight) / 2);
-            // });
             $('.today-game-container').height($('.today-game-container').width() * 1.08);
             $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
             $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
+
+            $('#modal_not_interested').click(function () {
+                $('#cardPopModal').modal('toggle');
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-bottom-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "1000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                toastr.info("将减少此类推荐");
+            });
+            $('#modal_report').click(function () {
+                $('#cardPopModal').modal('toggle');
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-bottom-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "1000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                toastr.info("投诉成功");
+            });
         });
 
         $(window).resize(function () {
@@ -46,15 +85,6 @@
             $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
             $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
         });
-
-        // $(function () {
-        //     var eTop = $('#arrow_2').offset().top;
-
-        //     $(window).scroll(function () { //when window is scrolled
-        //         log_2($(window).height());
-        //         log(eTop - $(window).scrollTop() + $('.home-game-card-header').height());
-        //     });
-        // });
 
         function log(txt) {
             $('#log').html('location : <b>' + txt + '</b> px')
@@ -111,7 +141,7 @@
                 </div>
             </div>
         </div>
-        <p class="mb-2 mt-1 home-card-description">找到逃课的小明，绝不能让他误入歧途！</p>
+        <p class="home-card-description">找到逃课的小明，绝不能让他误入歧途！</p>
         <div class="home-game-card-img-container">
             <img class="card-img-top home-game-card-img" src="contents/games/photos/main_pic/02.jpg"
                 alt="Card image cap"></div>
@@ -136,13 +166,46 @@
                 </div>
             </div>
         </div>
-        <p class="mb-2 mt-1 home-post-card-tittle"></p>
-        <p class="mb-2 mt-1 home-card-description">[图片] 遇到同道，像是茫茫人海，遇到暖心之所 [图片] 又像战斗有了伙伴 [图片] 又好像看到了希望 [图片]
+        <p class="home-post-card-tittle">今日最佳（发现同道中人）</p>
+        <p class="home-card-description">[图片] 遇到同道，像是茫茫人海，遇到暖心之所 [图片] 又像战斗有了伙伴 [图片] 又好像看到了希望 [图片]
             小姐姐～(￣▽￣～)~ [图片] 理想的兄妹关系 [图片] 又像看到可爱的猫咪 </p>
         <div class="home-post-card-img-container">
+            <img class="card-img-top home-post-card-img" src="contents/posts/photos/01_01.jfif" alt="Card image cap">
+        </div>
+        <div class="card-body p-0 home-post-card-footer">
+            <div href="#" class="home-post-card-footer-sort"><b>#</b> 综合讨论</div>
+            <div href="#" class="home-post-card-footer-coin"><i class="fas fa-coins"></i> 1</div>
+            <div href="#" class="home-post-card-footer-comment"><i class="far fa-comment-alt"></i> 1</div>
+        </div>
+    </div>
+    <hr class="mb-0">
+
+    <!-- post-card-example -->
+    <div class="card home-card-container border-0">
+        <div class="card-body pl-0 pr-0 pb-0 home-card-header">
+            <div class="media">
+                <img class="align-self-centers mr-2 home-post-card-header-user-icon"
+                    src="contents/posts/user-icon/02.jpg" alt="Generic placeholder image">
+                <div class="media-body home-post-card-header-user-name">
+                    <p class="mt-0 mb-0">吴子</p>
+                </div>
+                <div class="home-card-container-header-arrow" id="arrow_3">
+                    <i class="fa fa-angle-down fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+                </div>
+            </div>
+        </div>
+        <p class="home-post-card-tittle">【游戏摄影】全面战争·三国 </p>
+        <p class="home-card-description">虽然是个换皮游戏吧，但是我还真吃这一套
+            这是这几天的截图 [图片] [图片] [图片] [图片] [图片] [图片] [图片] [图片] [图片] </p>
+        <div class="home-post-card-img-container">
             <div class="home-post-card-img-container-left">
-                <img class="card-img-top home-post-card-img" src="contents/posts/photos/01_01.jfif"
-                    alt="Card image cap">
+                <img class="card-img-top home-post-card-img" src="contents/posts/photos/02_01.jpg" alt="Card image cap">
+            </div>
+            <div class="home-post-card-img-container-right-top">
+                <img class="card-img-top home-post-card-img" src="contents/posts/photos/02_02.jpg" alt="Card image cap">
+            </div>
+            <div class="home-post-card-img-container-right-bottom">
+                <img class="card-img-top home-post-card-img" src="contents/posts/photos/02_03.jpg" alt="Card image cap">
             </div>
         </div>
         <div class="card-body p-0 home-post-card-footer">
@@ -154,14 +217,14 @@
     <hr class="mb-0">
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="cardPopModal" tabindex="-1" role="dialog" aria-labelledby="cardPopModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content float-right">
-                <div class="modal-body">
-                    <p class="mb-0">不感兴趣</p>
-                    <hr class="mb-3 mt-3">
-                    <p class="mb-0">举报</p>
+                <div class="modal-body p-0">
+                    <button id="modal_not_interested" class="btn btn-light mb-0 w-100 h-50">不感兴趣</button>
+                    <hr class="mb-0 mt-0">
+                    <button id="modal_report" class="btn btn-light mb-0 w-100 h-50">举报</button>
                 </div>
             </div>
         </div>
@@ -221,26 +284,22 @@
             <img class="main-footer-btn" src="img/AppFrame/footer_btn_user_unread.png" alt=""></a>
     </nav>
 
-    <div id="log" class="fixed-bottom" style="text-align: center;"></div>
-    <div id="log_2" class="fixed-top" style="text-align: center;"></div>
+    <div id="log" class="fixed-top" style="text-align: center;"></div>
+    <div id="log_2" class="fixed-bottom" style="text-align: center;"></div>
+    <script>
+        // $(function () {
+        //     $('.home-post-card-img').each(function () {
+        //         var height = $(this).height();
+        //         console.log(height);
+        //         if (height == 0) return;
+        //         var cHeight = $('.home-post-card-img-container').height();
+        //         // $(this).css('margin-top', -(height - cHeight) / 2);
+        //         $(this).animate({
+        //             marginTop: -(height - cHeight) / 2
+        //         })
+        //     });
+        // });
+    </script>
 </body>
 
 </html>
-<script>
-    // var i = 1;
-    // $(function () {
-    //     if (i < 1) {
-    //         $(window).scroll(function () {
-    //             $('.home-post-card-img').each(function () {
-    //                 var height = $(this).height();
-    //                 // console.log(height);
-    //                 var cHeight = $('.home-post-card-img-container').height();
-    //                 // console.log(cHeight);
-    //                 $(this).css('margin-top', -(height - cHeight) / 2);
-    //             });
-    //             alert('succeed.');
-    //         });
-    //         i = 1;
-    //     }
-    // });
-</script>
