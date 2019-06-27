@@ -46,6 +46,9 @@
   bottom: 0;
   background: linear-gradient(90deg, #b89d8c, #81624f);
 }
+.footer-block {
+  min-height: 3.92857143rem;
+}
 .today-game-footer-icon {
   width: 2.61904762rem;
   min-width: 2.61904762rem;

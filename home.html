@@ -16,82 +16,49 @@
     <link rel="stylesheet" href="css/home-style.css">
     <script>
         $(function () {
-            $('.home-card-container-header-arrow').click(function () {
-                var eTop = $(this).offset().top;
-                console.log(eTop - $(window).scrollTop());
-                var modalContentTop = eTop - $(window).scrollTop() + $('.home-card-header')
-                    .height();
-                console.log(modalContentTop + $('.modal-content').height());
-                var modalContentBottom = modalContentTop + $('.modal-content').height()
-                if (modalContentBottom > $(window).height()) {
-                    $('#cardPopModal .modal-content').css('top', $(window).height() - $(
-                        '.modal-content').height() - 16);
-                } else {
-                    $('#cardPopModal .modal-content').css('top', modalContentTop);
+            $.ajax({
+                url: 'res/games/home-game-card.json',
+                dataType: 'text',
+                success: function (data) {
+                    var json = JSON.parse(data);
+                    $.each(json.games, function (idx, game) {
+                        addGameCard(game.id, game.name, game.main_description, game.mark);
+                    })
                 }
-                $('#cardPopModal').modal('toggle');
             });
+        })
 
-            $('.today-game-container').height($('.today-game-container').width() * 1.08);
-            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
-            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
-
-            $('#modal_not_interested').click(function () {
-                $('#cardPopModal').modal('toggle');
-                toastr.options = {
-                    "closeButton": false,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": false,
-                    "positionClass": "toast-bottom-center",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "1000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                }
-                toastr.info("将减少此类推荐");
-            });
-            $('#modal_report').click(function () {
-                $('#cardPopModal').modal('toggle');
-                toastr.options = {
-                    "closeButton": false,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": false,
-                    "positionClass": "toast-bottom-center",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "1000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                }
-                toastr.info("投诉成功");
-            });
-        });
-
-        $(window).resize(function () {
-            $('.today-game-container').height($('.today-game-container').width() * 1.08);
-            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
-            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
-        });
-
-        function log(txt) {
-            $('#log').html('location : <b>' + txt + '</b> px')
-        }
-
-        function log_2(txt) {
-            $('#log_2').html('location : <b>' + txt + '</b> px')
+        function addGameCard(game_id, game_name, game_desc, game_mark) {
+            var game_card_txt =
+                "" +
+                "    <!-- game-card-example -->" +
+                "    <div class=\"card home-card-container border-0\">" +
+                "        <div class=\"card-body pl-0 pr-0 pb-0 home-card-header\">" +
+                "            <div class=\"media\">" +
+                "                <img class=\"align-self-centers mr-2 home-game-card-header-icon\"" +
+                "                    src=\"res/games/" + game_id +
+                "/icon.png\">" +
+                "                <div class=\"media-body home-game-card-header-tittle\">" +
+                "                    <p class=\"mt-0 mb-0\">" + game_name + "</p>" +
+                "                </div>" +
+                "                <div class=\"home-card-container-header-arrow\" id=\"arrow_1\">" +
+                "                    <i class=\"fa fa-angle-down fa-lg \" aria-hidden=\"true\" style=\"color: #b2b2b2\"></i>" +
+                "                </div>" +
+                "            </div>" +
+                "        </div>" +
+                "        <p class=\"home-card-description\">" + game_desc + "</p>" +
+                "        <div class=\"home-game-card-img-container\">" +
+                "            <img class=\"card-img-top home-game-card-img\" src=\"res/games/" + game_id +
+                "/main_pic.jpg\"" +
+                "                alt=\"Card image cap\"></div>" +
+                "        <div class=\"card-body p-0 home-game-card-footer\">" +
+                "            <div class=\"home-game-card-footer-mark\"><i class=\"fas fa-gamepad\"></i> 游戏评分：" +
+                game_mark + "</div>" +
+                "            <div href=\"#\" class=\"home-game-card-footer-download\">下载</div>" +
+                "        </div>" +
+                "    </div>" +
+                "    <hr class=\"mb-0\">";
+            $('.footer-block').before(game_card_txt);
         }
     </script>
 </head>
@@ -161,7 +128,7 @@
                 <div class="media-body home-post-card-header-user-name">
                     <p class="mt-0 mb-0">决然临烟</p>
                 </div>
-                <div class="home-card-container-header-arrow" id="arrow_2">
+                <div class="home-card-container-header-arrow" id="arrow_2" onclick="modalShow()">
                     <i class="fa fa-angle-down fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
                 </div>
             </div>
@@ -229,47 +196,8 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
+    <div class="footer-block"></div>
     <!-- footer -->
     <nav class="navbar fixed-bottom main-footer" aria-label="Basic example">
         <a href="home.html">
@@ -287,6 +215,87 @@
     <div id="log" class="fixed-top" style="text-align: center;"></div>
     <div id="log_2" class="fixed-bottom" style="text-align: center;"></div>
     <script>
+        $(function () {
+
+            $('.today-game-container').height($('.today-game-container').width() * 1.08);
+            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
+            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
+
+            $('#modal_not_interested').click(function () {
+                $('#cardPopModal').modal('toggle');
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-bottom-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "1000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                toastr.info("将减少此类推荐");
+            });
+            $('#modal_report').click(function () {
+                $('#cardPopModal').modal('toggle');
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-bottom-center",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "1000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                toastr.info("投诉成功");
+            });
+        });
+
+        $(window).resize(function () {
+            $('.today-game-container').height($('.today-game-container').width() * 1.08);
+            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
+            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
+        });
+
+        function log(txt) {
+            $('#log').html('location : <b>' + txt + '</b> px')
+        }
+
+        function log_2(txt) {
+            $('#log_2').html('location : <b>' + txt + '</b> px')
+        }
+
+        $(function () {
+            $('.home-card-container-header-arrow').click(function () {
+                var eTop = $(this).offset().top;
+                console.log(eTop - $(window).scrollTop());
+                var modalContentTop = eTop - $(window).scrollTop() + $('.home-card-header')
+                    .height();
+                console.log(modalContentTop + $('.modal-content').height());
+                var modalContentBottom = modalContentTop + $('.modal-content').height()
+                if (modalContentBottom > $(window).height()) {
+                    $('#cardPopModal .modal-content').css('top', $(window).height() - $(
+                        '.modal-content').height() - 16);
+                } else {
+                    $('#cardPopModal .modal-content').css('top', modalContentTop);
+                }
+                $('#cardPopModal').modal('toggle');
+            });
+        })
     </script>
 </body>
 
