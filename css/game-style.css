@@ -1,0 +1,38 @@
+.game-main-header {
+  height: 3.33333333rem;
+  padding: 0.85714286rem 1.0952381rem 0rem 1.0952381rem;
+  font-size: 1.9047619rem;
+}
+.game-main-header-tittle {
+  font-size: 1.9047619rem;
+  line-height: 1.9047619rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.game-main-header-sort-icon {
+  height: 1.42857143rem;
+}
+.game-carousel {
+  margin: 1.04761905rem;
+}
+.game-carousel-inner-container {
+  border-radius: 1rem;
+}
+.carousel-item {
+  height: 100%;
+  overflow: hidden;
+}
+.carousel-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-indicators {
+  margin-top: 0.52380952rem;
+}
+.carousel-indicators li {
+  height: 0.19047619rem;
+  width: 0.78571429rem;
+  border: 0;
+  background: #00b5b3;
+}

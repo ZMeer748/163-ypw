@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
 }
-#header {
+.home-main-header {
   height: 3.19047619rem;
   background: #ffffff;
 }
-#logo {
+.home-main-header-logo {
   height: 1.23809524rem;
 }
 .main-footer {
