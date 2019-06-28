@@ -11,28 +11,35 @@
 }
 
 .game-main-header {
-    .rem(height, 140);
-    .rem_rounded(padding, 36, 46, 0, 46);
+    .rem(height, 166);
+    .rem_rounded(padding, 34, 46, 0, 46);
     .rem(font-size, 80);
 }
 
 .game-main-header-tittle {
     .rem(font-size, 80);
-    .rem(line-height, 80);
+    .rem(line-height, 130);
     font-weight: bold;
     margin-bottom: 0;
 }
 
+.game-main-header-sort-icon-container {
+    .rem(height, 110);
+    .rem_rounded(padding, 25, 0, 25, 0);
+}
+
 .game-main-header-sort-icon {
     .rem(height, 60);
+    float: right;
 }
 
 .game-carousel {
-    .rem(margin, 44);
+    .rem_rounded(margin, 24, 44, 100, 44);
 }
 
 .game-carousel-inner-container {
     .rem(border-radius, 42);
+    .rem(margin-bottom, 24);
 }
 
 .carousel-item {
@@ -47,7 +54,7 @@
 }
 
 .carousel-indicators {
-    .rem(margin-top, 22);
+    // .rem(margin-top, 22);
 }
 
 .carousel-indicators li {
@@ -55,4 +62,38 @@
     .rem(width, 33);
     border: 0;
     background: #00b5b3;
+}
+
+.game-list-card {
+    .rem(height, 450);
+}
+
+.game-list-card-header {
+    .rem(height, 66);
+    .rem_rounded(margin, 0, 44, 50, 44)
+}
+
+.game-list-card-header p {
+    .rem(line-height, 66);
+    .rem(font-size, 50);
+    float: left;
+}
+
+.game-list-card-header-arrow {
+    float: right;
+}
+
+.game-list-card-horizontal-list-container {
+    .rem(height, 332);
+    overflow: auto;
+}
+
+.game-list-card-horizontal-list-container::-webkit-scrollbar {
+    display: none
+}
+
+.game-list-card-horizontal-list {
+    height: 100%;
+    width: 300%;
+    background: linear-gradient(90deg, #01c4ff, #ff6666);
 }
