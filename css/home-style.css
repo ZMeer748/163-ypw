@@ -81,10 +81,9 @@
 }
 .today-game-footer-mark {
   font-size: 0.85714286rem;
-  line-height: 1.04761905rem;
-  max-width: 5.95238095rem;
+  line-height: 1.42857143rem;
   float: right;
-  flex: initial;
+  flex: none;
 }
 .home-card-container {
   margin: 0rem 1.04761905rem 1.19047619rem 1.04761905rem;
