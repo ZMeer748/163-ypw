@@ -47,7 +47,6 @@
 
         function addGameCard(game) {
             var game_card_txt =
-                "" +
                 "    <!-- game-card-example -->" +
                 "    <div class=\"card home-card-container border-0\" id=\"home-game-card-" + game.id + "\">" +
                 "        <div class=\"card-body pl-0 pr-0 pb-0 home-card-header\">" +
@@ -78,6 +77,60 @@
             $('.footer-block').before(game_card_txt);
         }
 
+        function addPostCard(post) {
+            var post_card_txt =
+                "    <!-- post-card-example -->" +
+                "    <div class=\"card home-card-container border-0\" id=\"home-post-card-" + post.id + "\">" +
+                "        <div class=\"card-body pl-0 pr-0 pb-0 home-card-header\">" +
+                "            <div class=\"media\">" +
+                "                <img class=\"align-self-centers mr-2 home-post-card-header-user-icon\"" +
+                "                    src=\"res/posts/" + post.id +
+                "/user_icon.jpg\" alt=\"Generic placeholder image\">" +
+                "                <div class=\"media-body home-post-card-header-user-name\">" +
+                "                    <p class=\"mt-0 mb-0\">" + post.user_name + "</p>" +
+                "                </div>" +
+                "                <div class=\"home-card-container-header-arrow\">" +
+                "                    <i class=\"fa fa-angle-down fa-lg \" aria-hidden=\"true\" style=\"color: #b2b2b2\"></i>" +
+                "                </div>" +
+                "            </div>" +
+                "        </div>" +
+                "        <p class=\"home-post-card-tittle\">" + post.tittle + "</p>" +
+                "        <p class=\"home-card-description\">" + post.main_description + "</p>" +
+                "        <div class=\"home-post-card-img-container\">";
+            if (post.pic_num >= 3) {
+                post_card_txt +=
+                    "            <div class=\"home-post-card-img-container-left\">" +
+                    "                <img class=\"card-img-top home-post-card-img\" src=\"res/posts/" + post.id +
+                    "/1.jpg\" alt=\"Card image cap\">" +
+                    "            </div>" +
+                    "            <div class=\"home-post-card-img-container-right-top\">" +
+                    "                <img class=\"card-img-top home-post-card-img\" src=\"res/posts/" + post.id +
+                    "/2.jpg\" alt=\"Card image cap\">" +
+                    "            </div>" +
+                    "            <div class=\"home-post-card-img-container-right-bottom\">" +
+                    "                <img class=\"card-img-top home-post-card-img\" src=\"res/posts/" + post.id +
+                    "/3.jpg\" alt=\"Card image cap\">" +
+                    "            </div>";
+            } else {
+                post_card_txt +=
+                    "            <img class=\"card-img-top home-post-card-img\" src=\"res/posts/" + post.id +
+                    "/1.jpg\" alt=\"Card image cap\">";
+            }
+
+            post_card_txt +=
+                "        </div>" +
+                "        <div class=\"card-body p-0 home-post-card-footer\">" +
+                "            <div href=\"#\" class=\"home-post-card-footer-sort\"><b>#</b> " + post.sort + "</div>" +
+                "            <div href=\"#\" class=\"home-post-card-footer-coin\"><i class=\"fas fa-coins\"></i> " +
+                post.coins_count + "</div>" +
+                "            <div href=\"#\" class=\"home-post-card-footer-comment\"><i class=\"far fa-comment-alt\"></i> " +
+                post.comment_count + "</div>" +
+                "        </div>" +
+                "    </div>" +
+                "    <hr class=\"mb-0\">";
+            $('.footer-block').before(post_card_txt);
+        }
+
         $(function () {
 
             var game_json;
@@ -96,21 +149,36 @@
             });
 
             function autoPopulate(field, id) {
-                console.log(game_json.games);
+                console.log(game_json.posts);
             };
 
             function generate_today_game() {
                 var index = Math.floor((Math.random() * game_json.games.length));
-                // alert(index);
                 addTodayGame(game_json.games[index]);
             }
 
             function generate_game_card() {
                 $.each(game_json.games, function (idx, game) {
-                    // if (game.id < 30000) {
-                    //     addGameCard(game);
-                    // }
                     addGameCard(game);
+                });
+            }
+
+            var post_json;
+
+            function Post_JSON_Process(callback) {
+                $.getJSON('res/posts/posts.json', function (data) {
+                    callback(data);
+                });
+            }
+
+            Post_JSON_Process(function (data) {
+                post_json = data;
+                generate_post_card();
+            });
+
+            function generate_post_card() {
+                $.each(post_json.posts, function (idx, post) {
+                    addPostCard(post);
                 });
             }
         });
@@ -173,8 +241,8 @@
     </div>
     <hr class="mb-0"> -->
 
-    <!-- post-card-example-3img -->
-    <div class="card home-card-container border-0">
+    <!-- post-card-example -->
+    <!-- <div class="card home-card-container border-0">
         <div class="card-body pl-0 pr-0 pb-0 home-card-header">
             <div class="media">
                 <img class="align-self-centers mr-2 home-post-card-header-user-icon"
@@ -199,10 +267,10 @@
             <div href="#" class="home-post-card-footer-comment"><i class="far fa-comment-alt"></i> 1</div>
         </div>
     </div>
-    <hr class="mb-0">
+    <hr class="mb-0"> -->
 
-    <!-- post-card-example -->
-    <div class="card home-card-container border-0">
+    <!-- post-card-example-3img -->
+    <!-- <div class="card home-card-container border-0">
         <div class="card-body pl-0 pr-0 pb-0 home-card-header">
             <div class="media">
                 <img class="align-self-centers mr-2 home-post-card-header-user-icon"
@@ -235,7 +303,7 @@
             <div href="#" class="home-post-card-footer-comment"><i class="far fa-comment-alt"></i> 1</div>
         </div>
     </div>
-    <hr class="mb-0">
+    <hr class="mb-0"> -->
 
     <!-- Modal -->
     <div class="modal fade" id="cardPopModal" tabindex="-1" role="dialog" aria-labelledby="cardPopModalLabel"
@@ -270,6 +338,21 @@
     <div id="log_2" class="fixed-bottom" style="text-align: center;"></div>
     <script>
         $(function () {
+            $('.home-card-container-header-arrow').click(function () {
+                var eTop = $(this).offset().top;
+                console.log(eTop - $(window).scrollTop());
+                var modalContentTop = eTop - $(window).scrollTop() + $('.home-card-header')
+                    .height();
+                console.log(modalContentTop + $('.modal-content').height());
+                var modalContentBottom = modalContentTop + $('.modal-content').height()
+                if (modalContentBottom > $(window).height()) {
+                    $('#cardPopModal .modal-content').css('top', $(window).height() - $(
+                        '.modal-content').height() - 16);
+                } else {
+                    $('#cardPopModal .modal-content').css('top', modalContentTop);
+                }
+                $('#cardPopModal').modal('toggle');
+            });
             $('#modal_not_interested').click(function () {
                 $('#cardPopModal').modal('toggle');
                 toastr.options = {
@@ -319,23 +402,7 @@
             home_Elements_resize();
         });
 
-        $(function () {
-            $('.home-card-container-header-arrow').click(function () {
-                var eTop = $(this).offset().top;
-                console.log(eTop - $(window).scrollTop());
-                var modalContentTop = eTop - $(window).scrollTop() + $('.home-card-header')
-                    .height();
-                console.log(modalContentTop + $('.modal-content').height());
-                var modalContentBottom = modalContentTop + $('.modal-content').height()
-                if (modalContentBottom > $(window).height()) {
-                    $('#cardPopModal .modal-content').css('top', $(window).height() - $(
-                        '.modal-content').height() - 16);
-                } else {
-                    $('#cardPopModal .modal-content').css('top', modalContentTop);
-                }
-                $('#cardPopModal').modal('toggle');
-            });
-        })
+        $(function () {})
 
         function home_Elements_resize() {
             $('.today-game-container').height($('.today-game-container').width() * 1.08);
