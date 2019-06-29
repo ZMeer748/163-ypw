@@ -159,9 +159,17 @@
 
             function generate_game_card() {
                 var i = 0;
-                $.each(game_json.games, function (idx, game) {
-                    addGameCard(game, i++);
-                });
+                var k = 0;
+                var gameArr = new Array();
+                for (var k = 0; k <= 16; k++) {
+                    var index = Math.floor((Math.random() * game_json.games.length));
+                    if ($.inArray(index, gameArr) != -1) {
+                        k = k - 1;
+                        continue;
+                    }
+                    gameArr[gameArr.length] = index;
+                    addGameCard(game_json.games[index], i++);
+                }
             }
 
             var post_json;
@@ -180,12 +188,20 @@
             function generate_post_card() {
                 var i = 0;
                 var j = 1;
-                $.each(post_json.posts, function (idx, post) {
+                var k = 0;
+                var postArr = new Array();
+                for (var k = 0; k <= 9; k++) {
+                    var index = Math.floor((Math.random() * post_json.posts.length));
+                    if ($.inArray(index, postArr) != -1) {
+                        k = k - 1;
+                        continue;
+                    }
                     if (i % 3 == 0) {
                         j += 2;
                     }
-                    addPostCard(post, i++, '#game-card-hr-' + j);
-                });
+                    postArr[postArr.length] = index;
+                    addPostCard(post_json.posts[index], i++, '#game-card-hr-' + j);
+                }
             }
         });
     </script>
