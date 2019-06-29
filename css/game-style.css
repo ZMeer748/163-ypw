@@ -41,6 +41,7 @@
 }
 .game-list-card {
   height: 10.71428571rem;
+  margin: 0rem 0rem 2.38095238rem 0rem;
 }
 .game-list-card-header {
   height: 1.57142857rem;
@@ -55,20 +56,49 @@
   float: right;
 }
 .game-list-card-horizontal-list-container {
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .game-list-card-horizontal-list {
   height: 100%;
-  width: 48.19047619rem;
-  padding-left: 1.04761905rem;
+  width: 47.14285714rem;
 }
 .game-list-card-horizontal-list-card {
   width: 4.71428571rem;
   height: 7.9047619rem;
-  margin-right: 1.04761905rem;
+  margin-left: 1.04761905rem;
   float: left;
   border: 0;
 }
+.game-list-card-horizontal-list-card .card-img-top {
+  border-radius: 0.80952381rem;
+  margin-bottom: 0.38095238rem;
+}
 .game-list-card-horizontal-list-card .card-body {
   padding: 0;
+}
+.game-list-card-horizontal-list-card-tittle {
+  height: 1.4047619rem;
+  line-height: 1.4047619rem;
+  margin-bottom: 0.19047619rem;
+}
+.game-list-card-horizontal-list-card-tittle p {
+  font-size: 1.04761905rem;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.game-list-card-horizontal-list-card-sort {
+  height: 1.19047619rem;
+  border-radius: 0.5952381rem;
+  padding: 0rem 0.5952381rem 0rem 0.5952381rem;
+  margin: 0 auto;
+  border: 1px solid #b2b2b2;
+}
+.game-list-card-horizontal-list-card-sort p {
+  line-height: 1.19047619rem;
+  font-size: 0.71428571rem;
+  text-align: center;
+  color: #b2b2b2;
 }

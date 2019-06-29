@@ -17,6 +17,9 @@
   border-top-style: solid;
   border-top-color: #ebebeb;
 }
+.footer-block {
+  height: 2.88095238rem;
+}
 .main-footer-btn {
   height: 1.57142857rem;
 }
@@ -46,9 +49,6 @@
   position: absolute;
   bottom: 0;
   background: linear-gradient(90deg, #00b4b4, #007777);
-}
-.footer-block {
-  min-height: 3.92857143rem;
 }
 .today-game-footer-icon {
   width: 2.61904762rem;
@@ -82,7 +82,7 @@
 .today-game-footer-mark {
   font-size: 0.85714286rem;
   line-height: 1.04761905rem;
-  max-width: 4.76190476rem;
+  max-width: 5.95238095rem;
   float: right;
   flex: initial;
 }

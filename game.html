@@ -16,10 +16,56 @@
     <link rel="stylesheet" href="css/home-style.css">
     <link rel="stylesheet" href="css/game-style.css">
     <script>
+        function addGameCard(game, container) {
+            var game_card_txt =
+                "                <div class=\"card game-list-card-horizontal-list-card\" style=\"\">" +
+                "                    <img class=\"card-img-top\" src=\"res/games/" + game.id +
+                "/icon.png\" alt=\"Card image cap\">" +
+                "                    <div class=\"game-list-card-horizontal-list-card-tittle\">" +
+                "                        <p>" + game.name + "</p>" +
+                "                    </div>" +
+                "                    <div class=\"game-list-card-horizontal-list-card-sort\">" +
+                "                        <p>" + game.sort + "</p>" +
+                "                    </div>" +
+                "                </div>";
+            $(container).append(game_card_txt);
+        }
+
+        $(function () {
+
+            var game_json;
+
+            function JSON_Process(callback) {
+                $.getJSON('res/games/games.json', function (data) {
+                    callback(data);
+                });
+            }
+
+            JSON_Process(function (data) {
+                game_json = data;
+                generate_game_card('#game-list-card_New_Game .game-list-card-horizontal-list', 6);
+                generate_game_card('#game-list-card_May_Also_Like .game-list-card-horizontal-list', 7);
+            });
+
+            function generate_game_card(container, num) {
+                var i = 0;
+                var gameArr = new Array();
+                for (var i = 0; i <= num; i++) {
+                    var index = Math.floor((Math.random() * game_json.games.length));
+                    if ($.inArray(index, gameArr) != -1) {
+                        i = i - 1;
+                        continue;
+                    }
+                    gameArr[gameArr.length] = index;
+                    addGameCard(game_json.games[index], container);
+                }
+            }
+        });
     </script>
 </head>
 
 <body>
+    <!-- game-main-header -->
     <nav class="navbar navbar-light game-main-header">
         <p class="game-main-header-tittle">游戏</p>
         <div class="game-main-header-sort-icon-container">
@@ -27,6 +73,7 @@
         </div>
     </nav>
 
+    <!-- game-carousel -->
     <div id="carouselExampleIndicators" class="carousel slide game-carousel" data-ride="carousel">
         <div class="carousel-inner game-carousel-inner-container">
             <div class="carousel-item">
@@ -54,7 +101,8 @@
         </ol>
     </div>
 
-    <div class="game-list-card">
+    <!-- New_Game -->
+    <div class="game-list-card" id="game-list-card_New_Game">
         <div class="game-list-card-header">
             <p>最新入库</p>
             <div class="game-list-card-header-arrow">
@@ -63,62 +111,29 @@
         </div>
         <div class="game-list-card-horizontal-list-container">
             <div class="game-list-card-horizontal-list">
-                    <div class="card game-list-card-horizontal-list-card" style="">
-                        <img class="card-img-top" src="res/games/18283/icon.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-title">Card title</p>
-                            <p class="card-text"></p>
-                        </div>
+                <div class="card game-list-card-horizontal-list-card" style="">
+                    <img class="card-img-top" src="res/games/25260/icon.png" alt="Card image cap">
+                    <div class="game-list-card-horizontal-list-card-tittle">
+                        <p>非人学院</p>
                     </div>
-                    <div class="card game-list-card-horizontal-list-card" style="">
-                        <img class="card-img-top" src="res/games/18283/icon.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-title">Card title</p>
-                            <p class="card-text"></p>
-                        </div>
+                    <div class="game-list-card-horizontal-list-card-sort">
+                        <p>角色扮演</p>
                     </div>
-                    <div class="card game-list-card-horizontal-list-card" style="">
-                        <img class="card-img-top" src="res/games/18283/icon.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-title">Card title</p>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                    <div class="card game-list-card-horizontal-list-card" style="">
-                        <img class="card-img-top" src="res/games/18283/icon.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-title">Card title</p>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                    <div class="card game-list-card-horizontal-list-card" style="">
-                        <img class="card-img-top" src="res/games/18283/icon.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-title">Card title</p>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                    <div class="card game-list-card-horizontal-list-card" style="">
-                        <img class="card-img-top" src="res/games/18283/icon.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-title">Card title</p>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                    <div class="card game-list-card-horizontal-list-card" style="">
-                        <img class="card-img-top" src="res/games/18283/icon.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-title">Card title</p>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                    <div class="card game-list-card-horizontal-list-card" style="">
-                        <img class="card-img-top" src="res/games/18283/icon.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-title">Card title</p>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- May_Also_Like -->
+    <div class="game-list-card" id="game-list-card_May_Also_Like">
+        <div class="game-list-card-header">
+            <p>猜你喜欢</p>
+            <div class="game-list-card-header-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </div>
+        <div class="game-list-card-horizontal-list-container">
+            <div class="game-list-card-horizontal-list">
             </div>
         </div>
     </div>
@@ -138,12 +153,17 @@
     </nav>
     <script>
         $(function () {
-            $('.game-carousel-inner-container').height($('.game-carousel-inner-container').width() * 0.44);
+            game_Elements_resize();
         });
 
         $(window).resize(function () {
-            $('.game-carousel-inner-container').height($('.game-carousel-inner-container').width() * 0.44);
+            game_Elements_resize();
         });
+
+
+        function game_Elements_resize() {
+            $('.game-carousel-inner-container').height($('.game-carousel-inner-container').width() * 0.44);
+        }
     </script>
 </body>
 
