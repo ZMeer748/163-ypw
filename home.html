@@ -15,51 +15,105 @@
     <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="css/home-style.css">
     <script>
-        $(function () {
-            $.ajax({
-                url: 'res/games/home-game-card.json',
-                dataType: 'text',
-                success: function (data) {
-                    var json = JSON.parse(data);
-                    $.each(json.games, function (idx, game) {
-                        addGameCard(game.id, game.name, game.main_description, game.mark);
-                    })
-                }
-            });
-        })
+        function addTodayGame(game) {
+            var today_game_txt =
+                "    <!-- today-game -->" +
+                "    <div class=\"card bg-dark text-white today-game-container border-0\"  id=\"today-game-" + game
+                .id + "\">" +
+                "        <img class=\"card-img today-game-bg-img\" src=\"res/games/" + game.id +
+                "/main_pic.jpg\" alt=\"Card image\">" +
+                "        <div class=\"card-img-overlay m-0 p-0 today-game-overlay\">" +
+                "            <h1 class=\"card-title today-game-text-main\">今日游戏" +
+                "                <div class=\"float-right font-weight-light today-game-text-past\">" +
+                "                    <i class=\"far fa-calendar-alt fa-sm fa-fw\"></i> 往期" +
+                "                </div>" +
+                "            </h1>" +
+                "            <div class=\"media bg-dark today-game-footer\">" +
+                "                <img class=\"align-self-centers today-game-footer-icon\" src=\"res/games/" + game.id +
+                "/icon.png\"" +
+                "                    alt=\"Generic placeholder image\">" +
+                "                <div class=\"media-body today-game-footer-content\">" +
+                "                    <p class=\"mt-0 mb-0 today-game-footer-content-tittle\">" + game.name + "</p>" +
+                "                    <p class=\"today-game-footer-content-description\">" + game.main_description +
+                "</p>" +
+                "                </div>" +
+                "                <div class=\"today-game-footer-mark\"><i class=\"fas fa-medal fa-sm fa-fw mt-1\"></i> " +
+                game.mark + "</div>" +
+                "            </div>" +
+                "        </div>" +
+                "    </div>";
+            $('.home-main-header').after(today_game_txt);
+        }
 
-        function addGameCard(game_id, game_name, game_desc, game_mark) {
+        function addGameCard(game) {
             var game_card_txt =
                 "" +
                 "    <!-- game-card-example -->" +
-                "    <div class=\"card home-card-container border-0\">" +
+                "    <div class=\"card home-card-container border-0\" id=\"home-game-card-" + game.id + "\">" +
                 "        <div class=\"card-body pl-0 pr-0 pb-0 home-card-header\">" +
                 "            <div class=\"media\">" +
                 "                <img class=\"align-self-centers mr-2 home-game-card-header-icon\"" +
-                "                    src=\"res/games/" + game_id +
+                "                    src=\"res/games/" + game.id +
                 "/icon.png\">" +
                 "                <div class=\"media-body home-game-card-header-tittle\">" +
-                "                    <p class=\"mt-0 mb-0\">" + game_name + "</p>" +
+                "                    <p class=\"mt-0 mb-0\">" + game.name + "</p>" +
                 "                </div>" +
                 "                <div class=\"home-card-container-header-arrow\" id=\"arrow_1\">" +
                 "                    <i class=\"fa fa-angle-down fa-lg \" aria-hidden=\"true\" style=\"color: #b2b2b2\"></i>" +
                 "                </div>" +
                 "            </div>" +
                 "        </div>" +
-                "        <p class=\"home-card-description\">" + game_desc + "</p>" +
+                "        <p class=\"home-card-description\">" + game.main_description + "</p>" +
                 "        <div class=\"home-game-card-img-container\">" +
-                "            <img class=\"card-img-top home-game-card-img\" src=\"res/games/" + game_id +
+                "            <img class=\"card-img-top home-game-card-img\" src=\"res/games/" + game.id +
                 "/main_pic.jpg\"" +
                 "                alt=\"Card image cap\"></div>" +
                 "        <div class=\"card-body p-0 home-game-card-footer\">" +
                 "            <div class=\"home-game-card-footer-mark\"><i class=\"fas fa-gamepad\"></i> 游戏评分：" +
-                game_mark + "</div>" +
+                game.mark + "</div>" +
                 "            <div href=\"#\" class=\"home-game-card-footer-download\">下载</div>" +
                 "        </div>" +
                 "    </div>" +
                 "    <hr class=\"mb-0\">";
             $('.footer-block').before(game_card_txt);
         }
+
+        $(function () {
+
+            var game_json;
+
+            function JSON_Process(callback) {
+                $.getJSON('res/games/games.json', function (data) {
+                    callback(data);
+                });
+            }
+
+            JSON_Process(function (data) {
+                game_json = data;
+                // autoPopulate('field', 'id');
+                generate_today_game();
+                generate_game_card();
+            });
+
+            function autoPopulate(field, id) {
+                console.log(game_json.games);
+            };
+
+            function generate_today_game() {
+                var index = Math.floor((Math.random() * game_json.games.length));
+                // alert(index);
+                addTodayGame(game_json.games[index]);
+            }
+
+            function generate_game_card() {
+                $.each(game_json.games, function (idx, game) {
+                    // if (game.id < 30000) {
+                    //     addGameCard(game);
+                    // }
+                    addGameCard(game);
+                });
+            }
+        });
     </script>
 </head>
 
@@ -74,7 +128,7 @@
     </nav>
 
     <!-- today-game -->
-    <div class="card bg-dark text-white today-game-container border-0">
+    <!-- <div class="card bg-dark text-white today-game-container border-0">
         <img class="card-img today-game-bg-img" src="contents/games/photos/main_pic/01.jpg" alt="Card image">
         <div class="card-img-overlay m-0 p-0 today-game-overlay">
             <h1 class="card-title today-game-text-main">今日游戏
@@ -92,10 +146,10 @@
                 <div class="today-game-footer-mark"><i class="fas fa-medal fa-sm fa-fw mt-1"></i>0.0</div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- game-card-example -->
-    <div class="card home-card-container border-0">
+    <!-- <div class="card home-card-container border-0">
         <div class="card-body pl-0 pr-0 pb-0 home-card-header">
             <div class="media">
                 <img class="align-self-centers mr-2 home-game-card-header-icon"
@@ -117,7 +171,7 @@
             <div href="#" class="home-game-card-footer-download">下载</div>
         </div>
     </div>
-    <hr class="mb-0">
+    <hr class="mb-0"> -->
 
     <!-- post-card-example-3img -->
     <div class="card home-card-container border-0">
@@ -216,11 +270,6 @@
     <div id="log_2" class="fixed-bottom" style="text-align: center;"></div>
     <script>
         $(function () {
-
-            $('.today-game-container').height($('.today-game-container').width() * 1.08);
-            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
-            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
-
             $('#modal_not_interested').click(function () {
                 $('#cardPopModal').modal('toggle');
                 toastr.options = {
@@ -263,21 +312,12 @@
                 }
                 toastr.info("投诉成功");
             });
+            home_Elements_resize();
         });
 
         $(window).resize(function () {
-            $('.today-game-container').height($('.today-game-container').width() * 1.08);
-            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
-            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
+            home_Elements_resize();
         });
-
-        function log(txt) {
-            $('#log').html('location : <b>' + txt + '</b> px')
-        }
-
-        function log_2(txt) {
-            $('#log_2').html('location : <b>' + txt + '</b> px')
-        }
 
         $(function () {
             $('.home-card-container-header-arrow').click(function () {
@@ -296,6 +336,20 @@
                 $('#cardPopModal').modal('toggle');
             });
         })
+
+        function home_Elements_resize() {
+            $('.today-game-container').height($('.today-game-container').width() * 1.08);
+            $('.home-post-card-img-container').height($('.home-post-card-img-container').width() * 0.56);
+            $('.home-game-card-img-container').height($('.home-game-card-img-container').width() * 0.61);
+        }
+
+        function log(txt) {
+            $('#log').html('location : <b>' + txt + '</b> px')
+        }
+
+        function log_2(txt) {
+            $('#log_2').html('location : <b>' + txt + '</b> px')
+        }
     </script>
 </body>
 

@@ -55,14 +55,20 @@
   float: right;
 }
 .game-list-card-horizontal-list-container {
-  height: 7.9047619rem;
   overflow: auto;
-}
-.game-list-card-horizontal-list-container::-webkit-scrollbar {
-  display: none;
 }
 .game-list-card-horizontal-list {
   height: 100%;
-  width: 300%;
-  background: linear-gradient(90deg, #01c4ff, #ff6666);
+  width: 48.19047619rem;
+  padding-left: 1.04761905rem;
+}
+.game-list-card-horizontal-list-card {
+  width: 4.71428571rem;
+  height: 7.9047619rem;
+  margin-right: 1.04761905rem;
+  float: left;
+  border: 0;
+}
+.game-list-card-horizontal-list-card .card-body {
+  padding: 0;
 }

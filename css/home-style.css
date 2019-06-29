@@ -24,6 +24,7 @@
   margin: 3.19047619rem 1.04761905rem 0.80952381rem 1.04761905rem;
   border-radius: 1rem;
   box-shadow: 0rem 0rem 1.19047619rem #cccccc;
+  height: 25.54761905rem;
   overflow: hidden;
 }
 .today-game-bg-img {
@@ -44,7 +45,7 @@
   width: 100%;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(90deg, #b89d8c, #81624f);
+  background: linear-gradient(90deg, #00b4b4, #007777);
 }
 .footer-block {
   min-height: 3.92857143rem;
@@ -71,6 +72,7 @@
   white-space: nowrap;
 }
 .today-game-footer-content-description {
+  margin-top: 0.14285714rem;
   font-size: 0.80952381rem;
   line-height: 1.19047619rem;
   overflow: hidden;
@@ -78,10 +80,11 @@
   white-space: nowrap;
 }
 .today-game-footer-mark {
-  font-size: 1.0952381rem;
+  font-size: 0.85714286rem;
+  line-height: 1.04761905rem;
+  max-width: 4.76190476rem;
   float: right;
   flex: initial;
-  min-width: 2.61904762rem;
 }
 .home-card-container {
   margin: 0rem 1.04761905rem 1.19047619rem 1.04761905rem;

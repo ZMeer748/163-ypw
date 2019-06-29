@@ -84,16 +84,26 @@
 }
 
 .game-list-card-horizontal-list-container {
-    .rem(height, 332);
+    // .rem(height, 332);
     overflow: auto;
-}
-
-.game-list-card-horizontal-list-container::-webkit-scrollbar {
-    display: none
 }
 
 .game-list-card-horizontal-list {
     height: 100%;
-    width: 300%;
-    background: linear-gradient(90deg, #01c4ff, #ff6666);
+    // width: 300%;
+    .rem(width, 198 * 10+ 44);
+    .rem(padding-left, 44);
+    // background: linear-gradient(90deg, #01c4ff, #ff6666);
+}
+
+.game-list-card-horizontal-list-card {
+    .rem(width, 198);
+    .rem(height, 332);
+    .rem(margin-right, 44);
+    float: left;
+    border: 0;
+}
+
+.game-list-card-horizontal-list-card .card-body {
+    padding: 0;
 }
