@@ -31,25 +31,65 @@
             $(container).append(game_card_txt);
         }
 
+        function addPerviousTopic(topic, container) {
+            var topic_card_txt =
+                "                <div class=\"game-topic-list-card-horizontal-list-card\">" +
+                "                    <div class=\"card bg-dark text-white\">" +
+                "                        <img class=\"card-img\" src=\"res/topics/" + topic.id +
+                ".jpg\" alt=\"Card image\">" +
+                "                        <div class=\"card-img-overlay\">" +
+                "                            <div class=\"topic-date-container\">" +
+                "                                <p>" + topic.date + "</p>" +
+                "                            </div>" +
+                "                            <div class=\"topic-name-container\">" +
+                "                                <p>" +
+                "                                    " + topic.title + "" +
+                "                                </p>" +
+                "                            </div>" +
+                "                        </div>" +
+                "                    </div>" +
+                "                </div>";
+            $(container).append(topic_card_txt);
+        }
+
+        function set_game_list_card_width(container, num) {
+            var calRem = (242 * num + 44) / 42;
+            $(container).css({
+                'width': calRem + 'rem'
+            });
+        }
+
+        function set_topic_list_card_width(container, num) {
+            var calRem = (664 * num + 44) / 42;
+            $(container).css({
+                'width': calRem + 'rem'
+            });
+        }
+
         $(function () {
 
             var game_json;
 
-            function JSON_Process(callback) {
+            function Game_JSON_Process(callback) {
                 $.getJSON('res/games/games.json', function (data) {
                     callback(data);
                 });
             }
 
-            JSON_Process(function (data) {
+            Game_JSON_Process(function (data) {
                 game_json = data;
-                generate_game_card('#game-list-card_New_Game .game-list-card-horizontal-list', 7);
-                generate_game_card('#game-list-card_May_Also_Like .game-list-card-horizontal-list', 7);
+                generate_game_card('#game-list-card_New_Game .game-list-card-horizontal-list', 10);
+                generate_game_card('#game-list-card_May_Also_Like .game-list-card-horizontal-list', 10);
+                generate_game_card('#game-list-card_BTest .game-list-card-horizontal-list', 16);
+                generate_game_card('#game-list-card_Reservation .game-list-card-horizontal-list', 16);
+                generate_game_card('#game-list-card_Hottest .game-list-card-horizontal-list', 10);
+                generate_game_card('#game-list-card_Pay_Zone .game-list-card-horizontal-list', 5);
             });
 
             function generate_game_card(container, num) {
                 var gameArr = new Array();
-                for (var i = 0; i <= num; i++) {
+                set_game_list_card_width(container, num);
+                for (var i = 0; i < num; i++) {
                     var index = Math.floor((Math.random() * game_json.games.length));
                     if ($.inArray(index, gameArr) != -1) {
                         i = i - 1;
@@ -58,6 +98,32 @@
                     gameArr[gameArr.length] = index;
                     addGameCard(game_json.games[index], container);
                 }
+            }
+
+            var topic_json;
+
+            function Topic_JSON_Process(callback) {
+                $.getJSON('res/topics/topics.json', function (data) {
+                    callback(data);
+                });
+            }
+
+            Topic_JSON_Process(function (data) {
+                topic_json = data;
+                generate_topic_card(
+                    '#game-list-card_Previous_Topics .game-topic-list-card-horizontal-list', 5);
+            });
+
+            function generate_topic_card(container, num) {
+                var topicArr = new Array();
+                var i = 0;
+                $.each(topic_json.topics, function (idx, topic) {
+                    if (topic.id > 20000000) {
+                        i++;
+                        addPerviousTopic(topic, container);
+                    }
+                });
+                set_topic_list_card_width(container, i);
             }
         });
     </script>
@@ -128,7 +194,115 @@
         </div>
     </div>
 
+    <!-- latest-topic-card -->
+    <div class="card latest-topic-card">
+        <img class="card-img-top" src="res/topics/20190313.jpg" alt="Card image cap">
+        <div class="card-body latest-topic-card-body">
+            <div class="latest-topic-card-header">
+                <img src="res/topics/user_icon_1.png" alt="" class="latest-topic-card-header-user-icon">
+                <p class="latest-topic-card-header-tittle">猪场新猪仔</p>
+            </div>
+            <div class="latest-topic-description-container">
+                <p>喂~你知道吗，猪场又产了好多猪仔<br>什么什么，又产新猪仔了！？之前不是产了一堆了吗？<br>反正高产似母猪，我们去看看吧 ...<br>走走走！！！</p>
+            </div>
+            <div class="latest-topic-card-game-list">
+                <img src="res/games/31996/icon.png" alt="">
+                <img src="res/games/18283/icon.png" alt="">
+                <img src="res/games/1122/icon.png" alt="">
+                <img src="res/games/4118/icon.png" alt="">
+                <img src="res/games/16393/icon.png" alt="">
+                ...
+            </div>
+        </div>
+    </div>
+
+    <!-- game-topic -->
+    <div class="game-list-card" id="game-list-card_Previous_Topics">
+        <div class="game-list-card-header">
+            <p>往期专题</p>
+            <div class="game-list-card-header-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </div>
+        <div class="game-topic-list-card-horizontal-list-container">
+            <div class="game-topic-list-card-horizontal-list">
+                <!-- <div class="game-topic-list-card-horizontal-list-card">
+                    <div class="card bg-dark text-white">
+                        <img class="card-img" src="res/topics/20190116.jpg" alt="Card image">
+                        <div class="card-img-overlay">
+                            <div class="topic-date-container">
+                                <p>2019.1.16</p>
+                            </div>
+                            <div class="topic-name-container">
+                                <p>
+                                    先锋测评团|不疯魔不成活
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- game-list-card_BTest -->
+    <div class="game-list-card" id="game-list-card_BTest">
+        <div class="game-list-card-header">
+            <p>内测专区</p>
+            <div class="game-list-card-header-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </div>
+        <div class="game-list-card-horizontal-list-container">
+            <div class="game-list-card-horizontal-list">
+            </div>
+        </div>
+    </div>
+
+    <!-- game-list-card_Reservation -->
+    <div class="game-list-card" id="game-list-card_Reservation">
+        <div class="game-list-card-header">
+            <p>新游预约</p>
+            <div class="game-list-card-header-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </div>
+        <div class="game-list-card-horizontal-list-container">
+            <div class="game-list-card-horizontal-list">
+            </div>
+        </div>
+    </div>
+
+    <!-- game-list-card_Hottest -->
+    <div class="game-list-card" id="game-list-card_Hottest">
+        <div class="game-list-card-header">
+            <p>近期最热</p>
+            <div class="game-list-card-header-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </div>
+        <div class="game-list-card-horizontal-list-container">
+            <div class="game-list-card-horizontal-list">
+            </div>
+        </div>
+    </div>
+
+    <!-- game-list-card_Pay_Zone -->
+    <div class="game-list-card" id="game-list-card_Pay_Zone">
+        <div class="game-list-card-header">
+            <p>付费专区</p>
+            <div class="game-list-card-header-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </div>
+        <div class="game-list-card-horizontal-list-container">
+            <div class="game-list-card-horizontal-list">
+            </div>
+        </div>
+    </div>
+
     <!-- footer -->
+    <div class="footer-block"></div>
     <nav class="navbar fixed-bottom main-footer" aria-label="Basic example">
         <a href="home.html">
             <img class="main-footer-btn" src="img/AppFrame/footer_btn_home.png" alt=""></a>
@@ -149,7 +323,6 @@
         $(window).resize(function () {
             game_Elements_resize();
         });
-
 
         function game_Elements_resize() {
             $('.game-carousel-inner-container').height($('.game-carousel-inner-container').width() * 0.44);

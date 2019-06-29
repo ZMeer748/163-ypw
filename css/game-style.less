@@ -85,17 +85,13 @@
 }
 
 .game-list-card-horizontal-list-container {
-    // .rem(height, 332);
     overflow-x: auto;
     overflow-y: hidden;
 }
 
 .game-list-card-horizontal-list {
     height: 100%;
-    // width: 300%;
-    .rem(width, 198 * 10);
-    // .rem(padding-left, 44);
-    // background: linear-gradient(90deg, #01c4ff, #ff6666);
+    // .rem(width, 242 * 10);
 }
 
 .game-list-card-horizontal-list-card {
@@ -132,7 +128,7 @@
 .game-list-card-horizontal-list-card-sort {
     .rem(height, 50);
     .rem(border-radius, 25);
-    .rem_rounded(padding, 0,25,0,25);
+    .rem_rounded(padding, 0, 25, 0, 25);
     margin: 0 auto;
     border: 1px solid #b2b2b2;
 }
@@ -142,4 +138,132 @@
     .rem(font-size, 30);
     text-align: center;
     color: #b2b2b2;
+}
+
+.latest-topic-card {
+    .rem_rounded(margin, 0, 44, 100, 44);
+    .rem(border-radius, 36);
+    overflow: hidden;
+}
+
+.latest-topic-card-body {
+    .rem_rounded(padding, 35, 44, 44, 44);
+}
+
+.latest-topic-card-header {
+    .rem(height, 128);
+    .rem(margin-bottom, 34);
+
+}
+
+.latest-topic-card-header-user-icon {
+    .rem(width, 128);
+    .rem(margin-right, 22);
+    float: left;
+}
+
+.latest-topic-card-header-tittle {
+    .rem(height, 128);
+    .rem(line-height, 128);
+    .rem(font-size, 42);
+    .rem_rounded(margin, 0, 0, 0, 0);
+    font-weight: bold;
+    float: left;
+}
+
+.latest-topic-description-container {
+    .rem(height, 128);
+    .rem(margin-bottom, 34);
+    overflow: hidden;
+}
+
+.latest-topic-description-container p {
+    .rem(font-size, 30);
+    color: #666666;
+}
+
+.latest-topic-card-game-list img {
+    .rem(width, 110);
+    .rem(border-radius, 25);
+    .rem(margin-right, 34);
+}
+
+#game-list-card_Previous_Topics {
+    .rem(height, 392);
+}
+
+.game-topic-list-card-horizontal-list-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.game-topic-list-card-horizontal-list {
+    height: 100%;
+    // .rem(width, 6000);
+    // .rem(width, 242 * 10);
+}
+
+#game-list-card_Previous_Topics .card {
+    .rem(width, 620);
+    .rem(height, 275);
+}
+
+#game-list-card_Previous_Topics img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#game-list-card_Previous_Topics .card-img-overlay {
+    .rem(height, 102);
+    .rem(top, 174);
+    width: 100%;
+    bottom: 0;
+    padding: 0;
+}
+
+.game-topic-list-card-horizontal-list-card {
+    .rem(width, 620);
+    .rem(height, 275);
+    .rem(margin-left, 44);
+    .rem(border-radius, 28);
+    overflow: hidden;
+    border: 0;
+    float: left;
+    border: 0;
+}
+
+.topic-date-container {
+    .rem(width, 209);
+    .rem(height, 33);
+    margin: 0 auto;
+    .rem(margin-bottom, 10);
+    // background-color: #00b4b4;
+    background: linear-gradient(90deg, #444444, #00b4b4, #444444);
+    border: 0;
+    opacity: 0.4;
+}
+
+.topic-date-container p {
+    .rem(line-height, 33);
+    .rem(font-size, 20);
+    text-align: center;
+    opacity: 1;
+    margin: 0;
+}
+
+.topic-name-container {
+    .rem(height, 38);
+    .rem_rounded(margin, 0, 17, 0, 17);
+}
+
+.topic-name-container p {
+    .rem(line-height, 38);
+    .rem(font-size, 32);
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

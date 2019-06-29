@@ -61,7 +61,6 @@
 }
 .game-list-card-horizontal-list {
   height: 100%;
-  width: 47.14285714rem;
 }
 .game-list-card-horizontal-list-card {
   width: 4.71428571rem;
@@ -101,4 +100,108 @@
   font-size: 0.71428571rem;
   text-align: center;
   color: #b2b2b2;
+}
+.latest-topic-card {
+  margin: 0rem 1.04761905rem 2.38095238rem 1.04761905rem;
+  border-radius: 0.85714286rem;
+  overflow: hidden;
+}
+.latest-topic-card-body {
+  padding: 0.83333333rem 1.04761905rem 1.04761905rem 1.04761905rem;
+}
+.latest-topic-card-header {
+  height: 3.04761905rem;
+  margin-bottom: 0.80952381rem;
+}
+.latest-topic-card-header-user-icon {
+  width: 3.04761905rem;
+  margin-right: 0.52380952rem;
+  float: left;
+}
+.latest-topic-card-header-tittle {
+  height: 3.04761905rem;
+  line-height: 3.04761905rem;
+  font-size: 1rem;
+  margin: 0rem 0rem 0rem 0rem;
+  font-weight: bold;
+  float: left;
+}
+.latest-topic-description-container {
+  height: 3.04761905rem;
+  margin-bottom: 0.80952381rem;
+  overflow: hidden;
+}
+.latest-topic-description-container p {
+  font-size: 0.71428571rem;
+  color: #666666;
+}
+.latest-topic-card-game-list img {
+  width: 2.61904762rem;
+  border-radius: 0.5952381rem;
+  margin-right: 0.80952381rem;
+}
+#game-list-card_Previous_Topics {
+  height: 9.33333333rem;
+}
+.game-topic-list-card-horizontal-list-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.game-topic-list-card-horizontal-list {
+  height: 100%;
+}
+#game-list-card_Previous_Topics .card {
+  width: 14.76190476rem;
+  height: 6.54761905rem;
+}
+#game-list-card_Previous_Topics img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#game-list-card_Previous_Topics .card-img-overlay {
+  height: 2.42857143rem;
+  top: 4.14285714rem;
+  width: 100%;
+  bottom: 0;
+  padding: 0;
+}
+.game-topic-list-card-horizontal-list-card {
+  width: 14.76190476rem;
+  height: 6.54761905rem;
+  margin-left: 1.04761905rem;
+  border-radius: 0.66666667rem;
+  overflow: hidden;
+  float: left;
+  border: 0;
+}
+.topic-date-container {
+  width: 4.97619048rem;
+  height: 0.78571429rem;
+  margin: 0 auto;
+  margin-bottom: 0.23809524rem;
+  background: linear-gradient(90deg, #444444, #00b4b4, #444444);
+  border: 0;
+  opacity: 0.4;
+}
+.topic-date-container p {
+  line-height: 0.78571429rem;
+  font-size: 0.47619048rem;
+  text-align: center;
+  opacity: 1;
+  margin: 0;
+}
+.topic-name-container {
+  height: 0.9047619rem;
+  margin: 0rem 0.4047619rem 0rem 0.4047619rem;
+}
+.topic-name-container p {
+  line-height: 0.9047619rem;
+  font-size: 0.76190476rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

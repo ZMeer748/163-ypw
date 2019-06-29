@@ -30,6 +30,24 @@
         "mark": "暂无评分",
         "sort": "解谜"
     }, {
+        "id": 32550,
+        "name": "彼岸画廊",
+        "main_description": "真亦假时假亦真，假亦真时真亦假",
+        "mark": "8.3",
+        "sort": "解谜"
+    }, {
+        "id": 1122,
+        "name": "逗比人生",
+        "main_description": "逗比的人生不需要解释",
+        "mark": "8.3",
+        "sort": "文字冒险"
+    }, {
+        "id": 1378,
+        "name": "脸黑先生",
+        "main_description": "更何况还有樱桃呢！",
+        "mark": "9.5",
+        "sort": "解谜"
+    }, {
         "id": 31996,
         "name": "哈利波特：巫师联盟",
         "main_description": "继《Pokemon Go》后，哈利波特大冒险",
@@ -41,6 +59,12 @@
         "main_description": "白色尖塔需要一位新的领主，会是你吗？",
         "mark": "暂无评分",
         "sort": "策略"
+    }, {
+        "id": 32614,
+        "name": "西蒙的猫",
+        "main_description": "可爱的小动物陷入了一个泡泡陷阱，只有你可以帮助解救他们！",
+        "mark": "暂无评分",
+        "sort": "休闲"
     }, {
         "id": 32609,
         "name": "聚光灯 - 密室逃脱",
@@ -65,6 +89,12 @@
         "main_description": "海上争霸赛，一触即发！",
         "mark": "暂无评分",
         "sort": "策略"
+    }, {
+        "id": 31256,
+        "name": "画中世界",
+        "main_description": "不仅是一款游戏，还是一件艺术品",
+        "mark": "9.8",
+        "sort": "解谜"
     }, {
         "id": 16393,
         "name": "猫和老鼠",
@@ -93,7 +123,7 @@
         "id": 25260,
         "name": "非人学园",
         "main_description": "接招吧，凡人！",
-        "mark": "暂无评分",
+        "mark": "8.3",
         "sort": "MOBA"
     }, {
         "id": 4118,
