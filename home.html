@@ -45,7 +45,7 @@
             $('.home-main-header').after(today_game_txt);
         }
 
-        function addGameCard(game) {
+        function addGameCard(game, i) {
             var game_card_txt =
                 "    <!-- game-card-example -->" +
                 "    <div class=\"card home-card-container border-0\" id=\"home-game-card-" + game.id + "\">" +
@@ -73,11 +73,11 @@
                 "            <div href=\"#\" class=\"home-game-card-footer-download\">下载</div>" +
                 "        </div>" +
                 "    </div>" +
-                "    <hr class=\"mb-0\">";
+                "    <hr class=\"mb-0\" id=\"game-card-hr-" + i + "\">";
             $('.footer-block').before(game_card_txt);
         }
 
-        function addPostCard(post) {
+        function addPostCard(post, i, before_hr) {
             var post_card_txt =
                 "    <!-- post-card-example -->" +
                 "    <div class=\"card home-card-container border-0\" id=\"home-post-card-" + post.id + "\">" +
@@ -127,21 +127,21 @@
                 post.comment_count + "</div>" +
                 "        </div>" +
                 "    </div>" +
-                "    <hr class=\"mb-0\">";
-            $('.footer-block').before(post_card_txt);
+                "    <hr class=\"mb-0\" id=\"post-card-hr-" + i++ + "\">";
+            $(before_hr).after(post_card_txt);
         }
 
         $(function () {
 
             var game_json;
 
-            function JSON_Process(callback) {
+            function Game_JSON_Process(callback) {
                 $.getJSON('res/games/games.json', function (data) {
                     callback(data);
                 });
             }
 
-            JSON_Process(function (data) {
+            Game_JSON_Process(function (data) {
                 game_json = data;
                 // autoPopulate('field', 'id');
                 generate_today_game();
@@ -158,8 +158,9 @@
             }
 
             function generate_game_card() {
+                var i = 0;
                 $.each(game_json.games, function (idx, game) {
-                    addGameCard(game);
+                    addGameCard(game, i++);
                 });
             }
 
@@ -177,8 +178,13 @@
             });
 
             function generate_post_card() {
+                var i = 0;
+                var j = 1;
                 $.each(post_json.posts, function (idx, post) {
-                    addPostCard(post);
+                    if (i % 3 == 0) {
+                        j += 2;
+                    }
+                    addPostCard(post, i++, '#game-card-hr-' + j);
                 });
             }
         });
