@@ -18,7 +18,7 @@
         function addTodayGame(game) {
             var today_game_txt =
                 "    <!-- today-game -->" +
-                "    <div class=\"card bg-dark text-white today-game-container border-0\"  id=\"today-game-" + game
+                "    <div class=\"card bg-dark text-white today-game-container border-0\"  id=\"today_game_" + game
                 .id + "\">" +
                 "        <img class=\"card-img today-game-bg-img\" src=\"res/games/" + game.id +
                 "/main_pic.jpg\" alt=\"Card image\">" +
@@ -48,7 +48,7 @@
         function addGameCard(game, i) {
             var game_card_txt =
                 "    <!-- game-card-example -->" +
-                "    <div class=\"card home-card-container border-0\" id=\"home-game-card-" + game.id + "\">" +
+                "    <div class=\"card home-card-container border-0\" id=\"home_game_card_" + game.id + "\">" +
                 "        <div class=\"card-body pl-0 pr-0 pb-0 home-card-header\">" +
                 "            <div class=\"media\">" +
                 "                <img class=\"align-self-centers mr-2 home-game-card-header-icon\"" +
@@ -57,7 +57,7 @@
                 "                <div class=\"media-body home-game-card-header-tittle\">" +
                 "                    <p class=\"mt-0 mb-0\">" + game.name + "</p>" +
                 "                </div>" +
-                "                <div class=\"home-card-container-header-arrow\">" +
+                "                <div class=\"home-card-container-header-arrow\" id=\"game_arrow_" + game.id + "\">" +
                 "                    <i class=\"fa fa-angle-down fa-lg \" aria-hidden=\"true\" style=\"color: #b2b2b2\"></i>" +
                 "                </div>" +
                 "            </div>" +
@@ -80,7 +80,7 @@
         function addPostCard(post, i, before_hr) {
             var post_card_txt =
                 "    <!-- post-card-example -->" +
-                "    <div class=\"card home-card-container border-0\" id=\"home-post-card-" + post.id + "\">" +
+                "    <div class=\"card home-card-container border-0\" id=\"home_post_card_" + post.id + "\">" +
                 "        <div class=\"card-body pl-0 pr-0 pb-0 home-card-header\">" +
                 "            <div class=\"media\">" +
                 "                <img class=\"align-self-centers mr-2 home-post-card-header-user-icon\"" +
@@ -89,7 +89,7 @@
                 "                <div class=\"media-body home-post-card-header-user-name\">" +
                 "                    <p class=\"mt-0 mb-0\">" + post.user_name + "</p>" +
                 "                </div>" +
-                "                <div class=\"home-card-container-header-arrow\">" +
+                "                <div class=\"home-card-container-header-arrow\" id=\"post_arrow_" + post.id + "\">" +
                 "                    <i class=\"fa fa-angle-down fa-lg \" aria-hidden=\"true\" style=\"color: #b2b2b2\"></i>" +
                 "                </div>" +
                 "            </div>" +
@@ -161,7 +161,15 @@
 
 
             function generate_today_game() {
-                var index = Math.floor((Math.random() * game_json.games.length));
+                var index;
+                for (;;) {
+                    index = Math.floor((Math.random() * game_json.games.length));
+                    var temp_id = game_json.games[index].id;
+                    if (temp_id != 25260 && temp_id != 18283 && temp_id != 31903 && temp_id != 31510 &&
+                        temp_id != 32611 && temp_id != 31996) {
+                        break;
+                    }
+                }
                 addTodayGame(game_json.games[index]);
             };
 
@@ -239,7 +247,7 @@
             <img class="main-footer-btn" src="img/AppFrame/footer_btn_discover.png" alt=""></a>
         <a href="game.html">
             <img class="main-footer-btn" src="img/AppFrame/footer_btn_game.png" alt=""></a>
-        <a href="#">
+        <a href="search.html">
             <img class="main-footer-btn" src="img/AppFrame/footer_btn_search.png" alt=""></a>
         <a href="#">
             <img class="main-footer-btn" src="img/AppFrame/footer_btn_user_unread.png" alt=""></a>
@@ -248,6 +256,8 @@
     <div id="log" class="fixed-top" style="text-align: center;"></div>
     <div id="log_2" class="fixed-bottom" style="text-align: center;"></div>
     <script>
+        var temp_arrow_id;
+
         $(window).resize(function () {
             home_Elements_resize();
         });
@@ -264,6 +274,11 @@
 
         function log_2(txt) {
             $('#log_2').html('location : <b>' + txt + '</b> px')
+        }
+
+        function card_fadeout(arrow_id) {
+            $(arrow_id).parent().parent().parent().fadeOut();
+            $(arrow_id).parent().parent().parent().next('hr').fadeOut();
         }
 
         $(function () {
@@ -290,33 +305,32 @@
                 "hideMethod": "fadeOut"
             }
             toastr.info("将减少此类推荐");
+            card_fadeout(temp_arrow_id);
         });
 
         $(document).on('click', '#modal_report', function () {
-            $().click(function () {});
-            $('#modal_report').click(function () {
-                $('#cardPopModal').modal('toggle');
-                toastr.options = {
-                    "closeButton": false,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": false,
-                    "positionClass": "toast-bottom-center",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "1000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                }
-                toastr.info("投诉成功");
-            });
+            $('#cardPopModal').modal('toggle');
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-bottom-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "1000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            toastr.info("投诉成功");
+            card_fadeout(temp_arrow_id);
         });
-        
+
         $(document).on('click', '.home-card-container-header-arrow', function () {
             var eTop = $(this).offset().top;
             console.log(eTop - $(window).scrollTop());
@@ -331,6 +345,7 @@
                 $('#cardPopModal .modal-content').css('top', modalContentTop);
             }
             $('#cardPopModal').modal('toggle');
+            temp_arrow_id = '#' + this.id;
         });
     </script>
 </body>

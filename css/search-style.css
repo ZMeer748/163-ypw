@@ -1,0 +1,125 @@
+.search-main-header {
+  height: 3.95238095rem;
+  padding: 0.80952381rem 1.0952381rem 0rem 1.0952381rem;
+  font-size: 1.9047619rem;
+  margin-bottom: 0.78571429rem;
+}
+.search-main-header-tittle {
+  font-size: 1.9047619rem;
+  line-height: 3.0952381rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.search-bar {
+  height: 3.02380952rem;
+  border-radius: 0.38095238rem;
+  margin: 0rem 1.04761905rem 0.30952381rem 1.04761905rem;
+  box-shadow: 0rem 0.11904762rem 0.47619048rem #e2e2e2;
+  overflow: hidden;
+  width: auto;
+}
+.search-bar-prepend {
+  background: #fff;
+}
+.search-bar-prepend span {
+  background: #fff;
+  border: 0;
+}
+.search-bar input {
+  padding-left: 0.04761905rem;
+  height: 100%;
+  border: 0;
+}
+.hot-container {
+  margin: 0rem 1.04761905rem 0rem 1.04761905rem;
+}
+.container-card-header {
+  height: 1.5952381rem;
+  margin: 1.85714286rem 0rem 0.19047619rem 0rem;
+}
+.container-card-header p {
+  font-size: 1.14285714rem;
+  line-height: 1.5952381rem;
+  font-weight: bold;
+}
+.hot-words-container .container {
+  padding: 0;
+}
+.hot-words-container .row {
+  margin: 0;
+}
+.col {
+  padding: 0;
+}
+.hot-word-card {
+  height: 4.19047619rem;
+  border-radius: 0.33333333rem;
+  margin: 0.52380952rem 0.52380952rem 0rem 0rem;
+  padding: 0.76190476rem 0.52380952rem 0.52380952rem 0.76190476rem;
+  padding-left: 0.76190476rem;
+  background-color: #f9f9f9;
+}
+.hot-word {
+  line-height: 1.42857143rem;
+  font-size: 1rem;
+  margin-bottom: 0.14285714rem;
+  font-weight: bold;
+}
+.hottest-word {
+  color: #00b4b4;
+}
+.hottest-word span {
+  font-size: 0.42857143rem;
+  line-height: 0.76190476rem;
+  padding: 0.0952381rem;
+  color: #fff;
+  background-color: #64cfa9;
+  font-weight: 200;
+}
+.hot-word-desc {
+  line-height: 1.04761905rem;
+  font-size: 0.71428571rem;
+  color: #b2b2b2;
+}
+.hot-post-card {
+  height: 8.33333333rem;
+  padding: 1.19047619rem 0rem 1.19047619rem 0rem;
+  border-bottom: 1px solid #ebebeb;
+}
+.hot-post-card img {
+  width: 39%;
+  height: 5.23809524rem;
+  border-radius: 0.5952381rem;
+  margin: 0.35714286rem 0rem 0.35714286rem 0.76190476rem;
+  object-fit: cover;
+}
+.hot-post-card .media-body {
+  width: 57%;
+  height: 5.95238095rem;
+}
+.hot-post-tittle {
+  line-height: 1.38095238rem;
+  margin-bottom: 0.71428571rem;
+  height: 2.76190476rem;
+  font-weight: bold;
+}
+.hot-post-desc {
+  width: 100%;
+  height: 2.04761905rem;
+}
+.hot-post-desc p {
+  font-size: 0.71428571rem;
+  line-height: 1.02380952rem;
+  color: #b2b2b2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.hot-post-info {
+  height: 1.04761905rem;
+}
+.hot-post-info p {
+  font-size: 0.71428571rem;
+  line-height: 1.04761905rem;
+  color: #b2b2b2;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ypw - 搜索</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/font-awesome/5.8.2/js/all.min.js"></script>
+    <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="css/home-style.css">
+    <link rel="stylesheet" href="css/search-style.css">
+    <script>
+        function addHotPost(post) {
+            var hot_post_txt =
+                "        <div class=\"hot-post-card\" id=\"hot_post_" + post.id + "\">" +
+                "            <div class=\"media\">" +
+                "                <div class=\"media-body\">" +
+                "                    <p class=\"hot-post-tittle\">" + post.tittle + "</p>" +
+                "                    <div class=\"hot-post-desc\">" +
+                "                        <p>" + post.main_description + "</p>" +
+                "                    </div>" +
+                "                    <div class=\"hot-post-info\">" +
+                "                        <p>" + post.read_count + " 阅读 · " + post.comment_count + " 评论</p>" +
+                "                    </div>" +
+                "                </div>" +
+                "                <img class=\"\" src=\"res/posts/" + post.id +
+                "/1.jpg\" alt=\"Generic placeholder image\">" +
+                "            </div>" +
+                "        </div>";
+            $('#hot-post-container').append(hot_post_txt);
+        }
+
+        $(function () {
+
+            var post_json;
+
+            function Post_JSON_Process(callback) {
+                $.getJSON('res/posts/posts.json', function (data) {
+                    callback(data);
+                });
+            };
+
+            Post_JSON_Process(function (data) {
+                post_json = data;
+                generate_hot_post_card();
+            });
+
+            function generate_hot_post_card() {
+                $.each(post_json.posts, function (idx, post) {
+                    addHotPost(post);
+                });
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <!-- search-main-header -->
+    <nav class="navbar navbar-light search-main-header">
+        <p class="search-main-header-tittle">搜索</p>
+    </nav>
+
+    <!-- search-bar -->
+    <div class="input-group search-bar">
+        <div class="input-group-prepend search-bar-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+        </div>
+        <input type="search" class="form-control" placeholder="画中世界" aria-label="search"
+            aria-describedby="basic-addon1">
+    </div>
+
+    <!-- hot-words-container -->
+    <div class="hot-container">
+        <div class="container-card-header">
+            <p>热词</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="hot-word-card hottest-word">
+                        <p class="hot-word">我的世界
+                            <span class="badge">HOT</span></p>
+                        <p class="hot-word-desc">创造更好的世界</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hot-word-card hottest-word">
+                        <p class="hot-word">逗比人生
+                            <span class="badge">HOT</span></p>
+                        <p class="hot-word-desc">人这一辈子...</p>
+                    </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                    <div class="hot-word-card">
+                        <p class="hot-word">画中世界</p>
+                        <p class="hot-word-desc">用一辈子去追寻</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hot-word-card">
+                        <p class="hot-word">开罗</p>
+                        <p class="hot-word-desc">模拟器全世界</p>
+                    </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                    <div class="hot-word-card">
+                        <p class="hot-word">王国保卫战</p>
+                        <p class="hot-word-desc">移动端最强塔防</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hot-word-card">
+                        <p class="hot-word">饥荒</p>
+                        <p class="hot-word-desc">朋友，你看起来不太好</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- hot-posts-container -->
+    <div class="hot-container" id="hot-post-container">
+        <div class="container-card-header">
+            <p>热帖</p>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-block"></div>
+    <nav class="navbar fixed-bottom main-footer" aria-label="Basic example">
+        <a href="home.html">
+            <img class="main-footer-btn" src="img/AppFrame/footer_btn_home.png" alt=""></a>
+        <a href="#">
+            <img class="main-footer-btn" src="img/AppFrame/footer_btn_discover.png" alt=""></a>
+        <a href="game.html">
+            <img class="main-footer-btn" src="img/AppFrame/footer_btn_game.png" alt=""></a>
+        <a href="search.html">
+            <img class="main-footer-btn" src="img/AppFrame/footer_btn_search_selected.png" alt=""></a>
+        <a href="#">
+            <img class="main-footer-btn" src="img/AppFrame/footer_btn_user_unread.png" alt=""></a>
+    </nav>
+</body>
+
+</html>

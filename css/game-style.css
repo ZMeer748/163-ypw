@@ -105,6 +105,8 @@
   margin: 0rem 1.04761905rem 2.38095238rem 1.04761905rem;
   border-radius: 0.85714286rem;
   overflow: hidden;
+  border: 0;
+  box-shadow: 0rem 0rem 0.47619048rem #cccccc;
 }
 .latest-topic-card-body {
   padding: 0.83333333rem 1.04761905rem 1.04761905rem 1.04761905rem;
@@ -153,6 +155,7 @@
 #game-list-card_Previous_Topics .card {
   width: 14.76190476rem;
   height: 6.54761905rem;
+  border: 0;
 }
 #game-list-card_Previous_Topics img {
   height: 100%;
@@ -172,8 +175,8 @@
   margin-left: 1.04761905rem;
   border-radius: 0.66666667rem;
   overflow: hidden;
-  float: left;
   border: 0;
+  float: left;
 }
 .topic-date-container {
   width: 4.97619048rem;
