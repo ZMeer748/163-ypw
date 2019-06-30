@@ -68,13 +68,15 @@
 .hottest-word {
   color: #00b4b4;
 }
-.hottest-word span {
+.hottest-word .badge {
   font-size: 0.42857143rem;
   line-height: 0.76190476rem;
   padding: 0.0952381rem;
+  margin: 0.35714286rem 0.35714286rem 0rem 0rem;
   color: #fff;
   background-color: #64cfa9;
-  font-weight: 200;
+  font-weight: 400;
+  float: right;
 }
 .hot-word-desc {
   line-height: 1.04761905rem;
