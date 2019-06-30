@@ -1,0 +1,100 @@
+hr {
+  margin-top: 0.07142857rem;
+  margin-bottom: 0.07142857rem;
+}
+.user-name-container {
+  height: auto;
+  width: auto;
+}
+.user-main-header {
+  margin: 3.9047619rem 1.30952381rem 0.9047619rem 1.30952381rem;
+  height: 5.23809524rem;
+}
+.user-name {
+  height: 2.61904762rem;
+}
+.user-name p {
+  font-size: 1.57142857rem;
+  line-height: 2.61904762rem;
+  font-weight: bold;
+}
+.user-name-info {
+  height: 1.26190476rem;
+}
+.user-name-info p {
+  line-height: 1.26190476rem;
+  color: #b2b2b2;
+}
+.user-icon-container {
+  height: 5.23809524rem;
+  width: 5.23809524rem;
+  box-shadow: 0rem 0.23809524rem 0.95238095rem #dddddd;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-icon-container img {
+  width: 100%;
+  height: 100%;
+}
+.user-counter-container {
+  width: 10.80952381rem;
+  height: 4.14285714rem;
+  padding: 0.95238095rem 0rem 0rem 0rem;
+  margin: 0rem 0rem 1.80952381rem 1.30952381rem;
+}
+.count {
+  font-size: 1.14285714rem;
+  line-height: 1.95238095rem;
+  height: 1.95238095rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.count_name {
+  font-size: 0.85714286rem;
+  line-height: 1.23809524rem;
+  height: 1.23809524rem;
+}
+.game-process-container {
+  width: 100%;
+  height: 6.54761905rem;
+  padding: 0rem 1.30952381rem 0rem 1.30952381rem;
+  display: flex;
+}
+.game-process {
+  height: 6.54761905rem;
+  width: 6.54761905rem;
+  border: 1px solid #f4f4f4;
+  flex: none;
+}
+.game-process-container img {
+  width: 2.61904762rem;
+  height: 2.61904762rem;
+  margin: 1.30952381rem 1.97619048rem 0.19047619rem 1.95238095rem;
+}
+.game-process p {
+  font-size: 0.71428571rem;
+  line-height: 1rem;
+  text-align: center;
+}
+.list-group-item {
+  border: 0;
+  height: 4.19047619rem;
+  line-height: 4.19047619rem;
+  padding: 0rem 1.30952381rem 0rem 1.30952381rem;
+}
+.list-group div {
+  width: 1.19047619rem;
+  height: 1.19047619rem;
+  margin-right: 0.71428571rem;
+  text-align: center;
+  display: inline-block;
+}
+.list-group-item .badge {
+  color: #fff;
+  background-color: #ff625a;
+  margin-left: 50%;
+  vertical-align: text-bottom;
+}
+.list-group-item-arrow {
+  float: right;
+}

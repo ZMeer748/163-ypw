@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ypw - 用户</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/font-awesome/5.8.2/js/all.min.js"></script>
+    <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
+    <script src="js/ypw.js"></script>
+    <link rel="stylesheet" href="css/home-style.css">
+    <link rel="stylesheet" href="css/user-style.css">
+</head>
+
+<body>
+    <div class="user-main-header d-flex justify-content-between">
+        <div class="user-name-container">
+            <div class="user-name">
+                <p>ZKY051</p>
+            </div>
+            <div class="user-name-info">
+                <p>查看个人主页或修改资料</p>
+            </div>
+        </div>
+        <div class="user-icon-container">
+            <img src="res/main_page_pic/user_icon.jpg" alt="">
+        </div>
+    </div>
+    <div class="user-counter-container d-flex justify-content-between">
+        <div class="user-counter">
+            <p class="count">0</p>
+            <p class="count_name">关注</p>
+        </div>
+        <div class="user-counter">
+            <p class="count">0</p>
+            <p class="count_name">粉丝</p>
+        </div>
+        <div class="user-counter">
+            <p class="count">0</p>
+            <p class="count_name">支持</p>
+        </div>
+    </div>
+
+    <div class="game-process-container d-flex justify-content-between">
+        <div class="game-process">
+            <img src="res/main_page_pic/main_game_download.png" alt="">
+            <p>下载</p>
+        </div>
+        <div class="game-process">
+            <img src="res/main_page_pic/main_game_update.png" alt="">
+            <p>更新</p>
+        </div>
+        <div class="game-process">
+            <img src="res/main_page_pic/main_game_my_game.png" alt="">
+            <p>游戏 13</p>
+        </div>
+    </div>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div><i class="fas fa-gifts"></i></div>我的福利
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <hr>
+        <li class="list-group-item">
+            <div><i class="fas  fa-envelope"></i></div>我的消息
+            <span class="badge">27</span>
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div><i class="fas fa-file-alt"></i></div>我的帖子
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div><i class="fas fa-comment-alt"></i></div>我的评论
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div><i class="fa fa-heart"></i></div>我的收藏
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div><i class="fas fa-gem"></i></div>我的Yo钻
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <hr>
+        <li class="list-group-item">
+            <div><i class="fas fa-store"></i></div>Yo商城
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div><i class="fa fa-mobile"></i></div>下载游戏免流量
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <hr>
+        <li class="list-group-item">
+            <div><i class="fas fa-toolbox"></i></div>辅助工具
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div><i class="fas fa-cog"></i></div>设置
+            <div class="list-group-item-arrow">
+                <i class="fa fa-angle-right fa-lg " aria-hidden="true" style="color: #b2b2b2"></i>
+            </div>
+        </li>
+    </ul>
+
+    <!-- footer -->
+    <div class="footer-block"></div>
+    <nav class="navbar fixed-bottom main-footer" aria-label="Basic example">
+        <a href="home.html">
+            <img class="main-footer-btn" src="res/main_page_pic/footer_btn_home.png" alt=""></a>
+        <a href="javascript:void(0)">
+            <img class="main-footer-btn" id="main-footer-btn-discover" src="res/main_page_pic/footer_btn_discover.png"
+                alt=""></a>
+        <a href="game.html">
+            <img class="main-footer-btn" src="res/main_page_pic/footer_btn_game.png" alt=""></a>
+        <a href="search.html">
+            <img class="main-footer-btn" src="res/main_page_pic/footer_btn_search.png" alt=""></a>
+        <a href="user.html">
+            <img class="main-footer-btn" src="res/main_page_pic/footer_btn_user_selected.png" alt=""></a>
+    </nav>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+.rem(@name, @px) {
+    @{name}: unit(@px / 42, rem);
+}
+
+.rem_rounded(@name, @px1, @px2, @px3, @px4) {
+    @{name}: unit(@px1 / 42, rem) unit(@px2 / 42, rem) unit(@px3 / 42, rem) unit(@px4 / 42, rem);
+}
+
+.rem_3px_1color(@name, @px1, @px2, @px3, @color) {
+    @{name}: unit(@px1 / 42, rem) unit(@px2 / 42, rem) unit(@px3 / 42, rem) @color;
+}
+
+hr {
+    .rem(margin-top, 3);
+    .rem(margin-bottom, 3);
+}
+
+.user-name-container {
+    height: auto;
+    width: auto;
+}
+
+.user-main-header {
+    .rem_rounded(margin, 164, 55, 38, 55);
+    .rem(height, 220);
+}
+
+.user-name {
+    .rem(height, 110);
+}
+
+.user-name p {
+    .rem(font-size, 66);
+    .rem(line-height, 110);
+    font-weight: bold;
+}
+
+.user-name-info {
+    .rem(height, 53);
+}
+
+.user-name-info p {
+    .rem(line-height, 53);
+    color: #b2b2b2;
+}
+
+.user-icon-container {
+    .rem(height, 220);
+    .rem(width, 220);
+    .rem_3px_1color(box-shadow, 0, 10, 40, #dddddd);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-icon-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.user-counter-container {
+    .rem(width, 454);
+    .rem(height, 174);
+    .rem_rounded(padding, 40, 0, 0, 0);
+    .rem_rounded(margin, 0, 0, 76, 55);
+}
+
+.count {
+    .rem(font-size, 48);
+    .rem(line-height, 82);
+    .rem(height, 82);
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.count_name {
+    .rem(font-size, 36);
+    .rem(line-height, 52);
+    .rem(height, 52);
+}
+
+.game-process-container {
+    width: 100%;
+    .rem(height, 275);
+    .rem_rounded(padding, 0, 55, 0, 55);
+    display: flex;
+}
+
+.game-process {
+    .rem(height, 275);
+    .rem(width, 275);
+    border: 1px solid #f4f4f4;
+    flex: none;
+}
+
+.game-process-container img {
+    .rem(width, 110);
+    .rem(height, 110);
+    .rem_rounded(margin, 55, 83, 8, 82);
+}
+
+.game-process p {
+    .rem(font-size, 30);
+    .rem(line-height, 42);
+    text-align: center;
+}
+
+.list-group-item {
+    border: 0;
+    .rem(height, 176);
+    .rem(line-height, 176);
+    .rem_rounded(padding, 0, 55, 0, 55);
+}
+
+.list-group div {
+    .rem(width, 50);
+    .rem(height, 50);
+    .rem(margin-right, 30);
+    text-align: center;
+    display: inline-block;
+}
+
+.list-group-item .badge {
+    color: #fff;
+    background-color: #ff625a;
+    margin-left: 50%;
+    vertical-align: text-bottom;
+}
+
+.list-group-item-arrow {
+    float: right;
+}
